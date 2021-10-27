@@ -7,12 +7,13 @@ setup(
     install_requires=[
         "descartes",
         "fiona",
+        "geojsoncontour",
         "matplotlib",
         "numpy",
         "pandas",
         "scipy",
         "shapely",
-        "utm",
         "tqdm",
+        "utm",
     ],
 )
