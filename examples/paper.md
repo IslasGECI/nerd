@@ -128,7 +128,7 @@ plt.xlim(50, 100)
 plt.ylim(0, 3)
 plt.xticks(size=fontsize)
 plt.yticks(size=fontsize)
-plt.savefig("calibration.png", dpi=300, transparent=True)
+plt.savefig("figures/calibration.png", dpi=300, transparent=True)
 ```
 
 
@@ -138,7 +138,7 @@ plt.savefig("calibration.png", dpi=300, transparent=True)
 
 
 ![Flow rate $\dot{m}$ (kg/s) as a function of aperture diameter, $d$ (mm); each symbol represents a
-calibration event and the black curve is the quadratic model fitted to the data.\label{fig:calibration}]()
+calibration event and the black curve is the quadratic model fitted to the data.\label{fig:calibration}]("figures/calibration.png")
 
 ## Swath width
 
@@ -176,7 +176,7 @@ plt.text(
     bbox=dict(facecolor="w", edgecolor="none"),
 )
 plt.axvline(0, color="k")
-plt.savefig("plots.png", dpi=300, transparent=True)
+plt.savefig("figures/plots.png", dpi=300, transparent=True)
 ```
 
 
@@ -184,6 +184,8 @@ plt.savefig("plots.png", dpi=300, transparent=True)
 ![png](paper_files/paper_20_0.png)
     
 
+
+![Aca va el pie de figura.\label{fig:plots}]("figures/plots.png")
 
 ## Select best density function
 
@@ -231,13 +233,16 @@ plt.plot(
 )
 plt.xlabel("Distance (m)", size=fontsize)
 plt.ylabel("Density (kg/m$^2$)", size=fontsize);
+plt.savefig("figures/density_profile.png")
 ```
 
 
     
-![png](paper_files/paper_24_0.png)
+![png](paper_files/paper_25_0.png)
     
 
+
+![Aca va el pie de figura.\label{fig:density_profile}]("figures/density_profile.png")
 
 ## Calibration model
 
@@ -289,20 +294,20 @@ cbar.ax.set_ylabel("Density (kg/ha)", size=fontsize_labels)
 cbar.ax.tick_params(labelsize=fontsize_ticks)
 plt.axhline(18.0056, color="r", linewidth=2)
 plt.text(65, 18.6, "35 knot", size=fontsize_labels, color="k")
-plt.savefig("contour_plot.png", dpi=300, transparent=True)
+plt.savefig("figures/contour_plot.png", dpi=300, transparent=True)
 ```
 
 
     
-![png](paper_files/paper_27_0.png)
+![png](paper_files/paper_29_0.png)
     
 
 
-![\ref{fig:densidadDeAperturaYRapidez} Surface bait density $\sigma$ (kg/ha) as a function of aperture
+![\ref{fig:contour_plot} Surface bait density $\sigma$ (kg/ha) as a function of aperture
 diameter $d$ (mm), and speed $s$ (km/hr). The horizontal axis shows the aperture diameter of the
 bait bucket and the vertical axis shows the helicopter's speed. The resulting bait density on the
 ground is shown in the second vertical color axis. $\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}$.
-\label{fig:densidadDeAperturaYRapidez}]()
+\label{fig:contour_plot}]("figures/contour_plot.png")
 
 The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w},$$ is shown in
 Figure \ref{fig:densidadDeAperturaYRapidez}. During the planning stage of an eradication campaign,
@@ -363,17 +368,20 @@ config_filepath = "/workdir/data/nerd_config.json"
 ```python
 nerd_model = Nerd(config_filepath)
 nerd_model.calculate_total_density()
-nerd_model.export_results_geojson(target_density=0.002)
+density_map = nerd_model.export_results_geojson(target_density=0.002)
+plt.savefig("figures/density_map.png")
 ```
 
-    100%|██████████| 6269/6269 [01:39<00:00, 62.79it/s] 
+    100%|██████████| 6269/6269 [01:33<00:00, 66.83it/s] 
 
 
 
     
-![png](paper_files/paper_39_1.png)
+![png](paper_files/paper_41_1.png)
     
 
+
+![Aca va el pie de figura.\label{fig:density_map}]("figures/density_map.png")
 
 # Discussion
 

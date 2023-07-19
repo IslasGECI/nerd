@@ -45,3 +45,4 @@ class Nerd:
             "{}/nerd_geojson.json".format(self.config_file.get("output_path")), "w"
         ) as outfile:
             json.dump(geojson, outfile)
+        return contours
