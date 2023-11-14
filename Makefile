@@ -61,6 +61,9 @@ format:
 	black --line-length 100 tests
 	black --line-length 100 examples/*.ipynb
 
+format_notebook:
+	black --line-length 100 /workdir/*.ipynb
+
 init: setup tests
 
 linter:
