@@ -26,12 +26,19 @@ jobs:
     - name: Check notebook format
       run: docker run --volume ${PWD}/Makefile:/workdir/Makefile islasgeci/nerd_demo:${GITHUB_SHA:0:4} make check_notebook
     - name: Verify the notebooks run
-      run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh --volume ${PWD}/examples:/workdir --volume ${PWD}/tests/data:/workdir/data islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
+      run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh --volume ${PWD}/examples:/workdir --volume ${PWD}/tests/data:/workdir/data --volume ${PWD}/examples/figures:/workdir/figures islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
     - name: Auto-commit python files
       uses: stefanzweifel/git-auto-commit-action@master
       with:
         commit_message: 🤖 Apply automatic changes
         file_pattern: 'examples/*.py'
+        commit_user_name: Ciencia de Datos • GECI
+        commit_user_email: ciencia.datos@islas.org.mx
+    - name: Auto-commit figures
+      uses: stefanzweifel/git-auto-commit-action@master
+      with:
+        commit_message: 🤖 Autocommit figures
+        file_pattern: 'examples/figures/*.png'
         commit_user_name: Ciencia de Datos • GECI
         commit_user_email: ciencia.datos@islas.org.mx
   push:
