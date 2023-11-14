@@ -28,12 +28,12 @@ jobs:
     - name: Verify the notebooks run
       run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
     - name: Auto-commit python files
-        uses: stefanzweifel/git-auto-commit-action@master
-        with:
-          commit_message: 🤖 Apply automatic changes
-          file_pattern: 'examples/*.py'
-          commit_user_name: Ciencia de Datos • GECI
-          commit_user_email: ciencia.datos@islas.org.mx
+      uses: stefanzweifel/git-auto-commit-action@master
+      with:
+        commit_message: 🤖 Apply automatic changes
+        file_pattern: 'examples/*.py'
+        commit_user_name: Ciencia de Datos • GECI
+        commit_user_email: ciencia.datos@islas.org.mx
   push:
     name: Push module to PyPI and images to Docker Hub
     needs: [test-notebook, test-module]
