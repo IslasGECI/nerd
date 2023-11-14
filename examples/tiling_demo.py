@@ -54,7 +54,7 @@ config_filepath = "/workdir/data/nerd_config.json"
 nerd_model = Nerd(config_filepath)
 nerd_model.calculate_total_density()
 density_map = nerd_model.export_results_geojson(target_density=0.002)
-plt.savefig("figures/density_map.png")
+plt.savefig("/workdir/figures/density_map.png")
 
 
 # ![Aca va el pie de figura.\label{fig:density_map}]("figures/density_map.png")

@@ -57,7 +57,7 @@ plt.xlim(50, 100)
 plt.ylim(0, 3)
 plt.xticks(size=fontsize)
 plt.yticks(size=fontsize)
-plt.savefig("figures/calibration.png", dpi=300, transparent=True)
+plt.savefig("/workdir/figures/calibration.png", dpi=300, transparent=True)
 
 
 # ![Flow rate $\dot{m}$ (kg/s) as a function of aperture diameter, $d$ (mm); each symbol represents a
@@ -102,7 +102,7 @@ plt.text(
     bbox=dict(facecolor="w", edgecolor="none"),
 )
 plt.axvline(0, color="k")
-plt.savefig("figures/plots.png", dpi=300, transparent=True)
+plt.savefig("/workdir/figures/plots.png", dpi=300, transparent=True)
 
 
 # ![Aca va el pie de figura.\label{fig:plots}]("figures/plots.png")
@@ -156,7 +156,7 @@ plt.plot(
 )
 plt.xlabel("Distance (m)", size=fontsize)
 plt.ylabel("Density (kg/m$^2$)", size=fontsize)
-plt.savefig("figures/density_profile.png")
+plt.savefig("/workdir/figures/density_profile.png")
 
 
 # ![Aca va el pie de figura.\label{fig:density_profile}]("figures/density_profile.png")
@@ -213,7 +213,7 @@ cbar.ax.set_ylabel("Density (kg/ha)", size=fontsize_labels)
 cbar.ax.tick_params(labelsize=fontsize_ticks)
 plt.axhline(18.0056, color="r", linewidth=2)
 plt.text(65, 18.6, "35 knot", size=fontsize_labels, color="k")
-plt.savefig("figures/contour_plot.png", dpi=300, transparent=True)
+plt.savefig("/workdir/figures/contour_plot.png", dpi=300, transparent=True)
 
 
 # ![\ref{fig:contour_plot} Surface bait density $\sigma$ (kg/ha) as a function of aperture
