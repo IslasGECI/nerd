@@ -153,36 +153,6 @@ swath_width = nerd.calibration.get_swath_width(distance, density)
 ```
 
 
-```python
-size = 10
-fontsize = 15
-plt.plot(distance, density_kg_per_ha, "o")
-plt.xlabel("Position from flightpath (m)", size=fontsize)
-plt.ylabel("Bait Density (kg/ha)", size=fontsize)
-plt.xlim(-40, 40)
-plt.ylim(0, 6)
-plt.xticks(size=size)
-plt.yticks(size=size)
-plt.text(
-    -0.5,
-    3,
-    "Flightpath",
-    size=15,
-    color="k",
-    rotation=90,
-    bbox=dict(facecolor="w", edgecolor="none"),
-)
-plt.axvline(0, color="k")
-plt.savefig("examples/figures/plots.png", dpi=300, transparent=True)
-```
-
-
-    
-    
-
-
-![Bait density $\sigma$ (kg/ha) as a function of the distance from the flight path (m). The green dots show the measured density on the ground after a calibration event. \label{fig:plots}](figures/plots.png)
-
 ## Select best density function
 
 
@@ -237,7 +207,7 @@ plt.savefig("examples/figures/density_profile.png")
     
 
 
-![Bait density $\sigma$ (kg/ha) as a function of the distance from the flight path (m). The red line shows the fitted density model. \label{fig:density_profile}](figures/density_profile.png)
+![Bait density $\sigma$ (kg/ha) as a function of the distance from the flight path (m). The dots show the measured density on the ground after a calibration event and the red line show the fitted density model. \label{fig:density_profile}](figures/density_profile.png)
 
 ## Calibration model
 
@@ -303,10 +273,6 @@ The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w
 
 During the planning stage of an eradication campaign, this model can be used to determine the diameter of the bait bucket needed to achieve the desired bait density on the ground, ensuring efficient bait coverage, while maximizing resources, time and labor force.
 
-
-```python
-
-```
 
 # Application
 
