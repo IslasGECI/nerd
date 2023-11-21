@@ -136,7 +136,7 @@ plt.savefig("examples/figures/calibration.png", dpi=300, transparent=True)
 
 
 ![Flow rate $\dot{m}$ (kg/s) as a function of aperture diameter, $d$ (mm); each symbol represents a
-calibration event and the black curve is the quadratic model fitted to the data.\label{fig:calibration}]("examples/figures/calibration.png")
+calibration event and the black curve is the quadratic model fitted to the data.\label{fig:calibration}](figures/calibration.png)
 
 ## Swath width
 
@@ -182,7 +182,7 @@ plt.savefig("examples/figures/plots.png", dpi=300, transparent=True)
     
 
 
-![Aca va el pie de figura.\label{fig:plots}]("examples/figures/plots.png")
+![Aca va el pie de figura.\label{fig:plots}](figures/plots.png)
 
 ## Select best density function
 
@@ -238,7 +238,7 @@ plt.savefig("examples/figures/density_profile.png")
     
 
 
-![Aca va el pie de figura.\label{fig:density_profile}]("examples/figures/density_profile.png")
+![Aca va el pie de figura.\label{fig:density_profile}](figures/density_profile.png)
 
 ## Calibration model
 
@@ -302,7 +302,7 @@ plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
 diameter $d$ (mm), and speed $s$ (km/hr). The horizontal axis shows the aperture diameter of the
 bait bucket and the vertical axis shows the helicopter's speed. The resulting bait density on the
 ground is shown in the second vertical color axis. $\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}$.
-\label{fig:contour_plot}]("examples/figures/contour_plot.png")
+\label{fig:contour_plot}](figures/contour_plot.png)
 
 The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w},$$ is shown in
 Figure \ref{fig:densidadDeAperturaYRapidez}. During the planning stage of an eradication campaign,
@@ -371,7 +371,7 @@ plt.savefig("examples/figures/density_map.png")
 
 
 
-![Aca va el pie de figura.\label{fig:density_map}]("examples/figures/density_map.png")
+![Aca va el pie de figura.\label{fig:density_map}](figures/density_map.png)
 
 # Discussion
 
