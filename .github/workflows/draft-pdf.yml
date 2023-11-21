@@ -1,5 +1,5 @@
 name: JOSS PDF Generator
-on: [push]
+on: push
 
 jobs:
   paper:
@@ -10,10 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
-      - name: Build demo Docker image
-        run: docker build --file Dockerfile.demo --tag=islasgeci/nerd_demo:latest .
-      - name: Merge notebooks
-        run: docker run --volume $PWD/examples:/workdir islasgeci/nerd_demo:latest bash -c "nbmerge /workdir/proceedings.ipynb /workdir/calibration-demo.ipynb /workdir/tiling_demo.ipynb > paper.ipynb && jupyter nbconvert /workdir/paper.ipynb --to markdown"
       - name: Build proceedings PDF
         uses: openjournals/openjournals-draft-action@master
         with:
