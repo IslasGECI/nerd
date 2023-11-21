@@ -182,7 +182,7 @@ plt.savefig("examples/figures/plots.png", dpi=300, transparent=True)
     
 
 
-![Aca va el pie de figura.\label{fig:plots}](figures/plots.png)
+![Bait density (kg/ha) as a function of the distance from the flight path (m). The green dots shows the measured density on the field during a calibration event. \label{fig:plots}](figures/plots.png)
 
 ## Select best density function
 
@@ -238,7 +238,7 @@ plt.savefig("examples/figures/density_profile.png")
     
 
 
-![Aca va el pie de figura.\label{fig:density_profile}](figures/density_profile.png)
+![Bait density (kg/ha) as a function of the distance from the flight path (m). The red line shows the fitted density model. \label{fig:density_profile}](figures/density_profile.png)
 
 ## Calibration model
 
@@ -298,17 +298,12 @@ plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
     
 
 
-![\ref{fig:contour_plot} Surface bait density $\sigma$ (kg/ha) as a function of aperture
-diameter $d$ (mm), and speed $s$ (km/hr). The horizontal axis shows the aperture diameter of the
-bait bucket and the vertical axis shows the helicopter's speed. The resulting bait density on the
-ground is shown in the second vertical color axis. $\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}$.
+![Surface bait density $\sigma$ (kg/ha) as a function of aperturediameter $d$ (mm), and speed $s$ (km/hr). The horizontal axis shows the aperture diameter of thebait bucket and the vertical axis shows the helicopter's speed. The resulting bait density on the ground is shown in the second vertical color axis. $\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}$.
 \label{fig:contour_plot}](figures/contour_plot.png)
 
-The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w},$$ is shown in
-Figure \ref{fig:densidadDeAperturaYRapidez}. During the planning stage of an eradication campaign,
-this model can be used to determine the diameter of the bait bucket needed to achieve the desired
-bait density on the ground, ensuring efficient bait coverage, while maximizing resources, time and
-labor force.
+The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w},$$ is shown in Figure \ref{fig:contour_plot}. 
+
+During the planning stage of an eradication campaign, this model can be used to determine the diameter of the bait bucket needed to achieve the desired bait density on the ground, ensuring efficient bait coverage, while maximizing resources, time and labor force.
 
 
 ```python
@@ -371,7 +366,7 @@ plt.savefig("examples/figures/density_map.png")
 
 
 
-![Aca va el pie de figura.\label{fig:density_map}](figures/density_map.png)
+![Bait density map after a aerial broadcast of rodenticide bait.\label{fig:density_map}](figures/density_map.png)
 
 # Discussion
 
