@@ -57,7 +57,7 @@ probability density function that describes the bait density on the ground as a 
 
 # Formulation
 
-@Mayoral-Rojas2019 showed that the function $\sigma(x,y)$ used to represent the
+@Rojas2019 showed that the function $\sigma(x,y)$ used to represent the
 superficial bait density (kg/m$^2$), must comply with the following property:
 \begin{equation}
 \int_{-\frac{w}{2}}^{+\frac{w}{2}} \sigma(x)dx=\frac{\dot{m}}{s}
