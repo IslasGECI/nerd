@@ -67,21 +67,12 @@ where $\dot{m}$ is the bait flow (kg/s), $s$ is the speed of the helicopter (m/s
 
 # Calibration
 
-Assuming the density is independent of $x$, i.e. $\sigma$ does not change along the swath width,
-equation \eqref{eq:integralDeDensidadEsflujoSobreRapidez} can be easily solved to obtain:
+Assuming the density is independent of $x$, i.e. $\sigma$ does not change along the swath width and expressing the mass flow rate of bait as a function of the aperture diameter, $\dot{m}(d)$, we obtain the two-parameter model:
 
-\begin{equation}
-  \sigma = \frac{\dot{m}}{s\cdot w}.
-  \label{eq:densidadEsFlujoSobreProductoRapidezPorAncho}
-\end{equation}
+\begin{equation} \sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}. \end{equation}
 
-
-
-In order to write equation \eqref{eq:densidadEsFlujoSobreProductoRapidezPorAncho} as a function of
-the aperture diameter of the bait bucket, we express the mass flow rate of bait as a function of the
-aperture diameter, $\dot{m}(d)$. To do this, the bait in the bucket was weighed and the time
-required to empty the bucket was measured and repeated using several aperture diameters. Figure
-\ref{fig:flujoDeApertura} shows the results from the calibration as well as the fitted model.
+We obtained the mass flow rate as a function of the aperture diameter of the bait bucket by measuring the time required to empty the bucket. 
+We repeated this using several aperture diameters with a known initial mass.
 
 
 ```python
