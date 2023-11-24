@@ -264,26 +264,19 @@ The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w
 During the planning stage of an eradication campaign, this model can be used to determine the diameter of the bait bucket needed to achieve the desired bait density on the ground, ensuring efficient bait coverage, while maximizing resources, time and labor force.
 
 
-# Application
+# Use cases
 
-For a given island, a particular bait density is required on the ground for a successful rodent
-eradication. This density is determined after studying the ecosystems of the island and the biology
-of the invasive target species. Given the required bait density and the total area of the island,
-the minimum amount of bait needed for the eradication operation can be calculated using NERD. While
-planning helicopter flights paths, it is assumed that the bait density within each swath is
-constant, but variable between swaths.
+For a given island, a particular bait density is required on the ground for a successful rodent eradication.
+This density is determined after studying the ecosystems of the island and the biology of the invasive target species.
 
-Assuming a variable bait density along each swath but uniform density across the swath, we can
-estimate bait density with greater precision after the aerial dispersal given that the bait density
-for each cell is calculated between two consecutive points recorded by the GPS. This case considers
-the effects on density when the helicopter flies with variable speed (Figure
-\ref{fig:densidadSimetrica}).
+We can use the NERD during the planning stage of an eradication campaign.
+We can determine the diameter of the bait bucket needed to achieve the desired bait density on the ground.
+NERD ensures efficient bait coverage while maximizing resources, time, and labor force.
+While planning helicopter flights paths, it is assumed that the bait density within each swath is constant, but variable between swaths.
 
-To account for the well known fact that we have a higher density of rodenticide right bellow of the
-helicopter and lower densities along the edges of the swath, we can assume a variable bait density
-both along and across each swath.  This allows for the detection of areas where the bait density is
-below the lower limit of the target bait density or of gaps on the ground without any bait.
-
+NERD can assist during the eradication by giving near real-time bait density maps generated in seconds.
+For example, we can consider the effects on density when the helicopter flies with variable speed.
+This map allows us to identify bait gaps during application, thus enabling the efficient use of resources.
 
 # Setting up field parameters
 
