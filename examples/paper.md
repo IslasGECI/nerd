@@ -192,10 +192,9 @@ plt.xlabel("Distance (m)", size=fontsize)
 plt.ylabel("Density (kg/m$^2$)", size=fontsize);
 plt.savefig("examples/figures/density_profile.png")
 ```
+Figure\ref{fig:contour_plot} shows the relation between the bait density and the parameters after the calibration.
 
-
-    
-    
+We can assume a variable bait density across each swath. To account for the well known fact that we have a higher density of rodenticide right bellow of the helicopter and lower densities along the edges of the swath. This allows for detecting areas where the bait density is below the lower limit of the target bait density or gaps on the ground without any bait.
 
 
 ![Bait density $\sigma$ (kg/ha) as a function of the distance from the flight path (m). The dots show the measured density on the ground after a calibration event and the red line show the fitted density model. \label{fig:density_profile}](figures/density_profile.png)
@@ -285,17 +284,6 @@ helicopter and lower densities along the edges of the swath, we can assume a var
 both along and across each swath.  This allows for the detection of areas where the bait density is
 below the lower limit of the target bait density or of gaps on the ground without any bait.
 
-## Tiling demo
-
-
-```python
-from nerd.io import Nerd
-from nerd.density_functions import normal
-import matplotlib.pyplot as plt
-
-%matplotlib inline
-plt.rcParams["figure.figsize"] = (10, 10)
-```
 
 # Setting up field parameters
 
