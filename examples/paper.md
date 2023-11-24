@@ -192,7 +192,7 @@ plt.xlabel("Distance (m)", size=fontsize)
 plt.ylabel("Density (kg/m$^2$)", size=fontsize);
 plt.savefig("examples/figures/density_profile.png")
 ```
-Figure\ref{fig:density_profile} shows the relation between the bait density and the parameters after the calibration.
+Figure \ref{fig:density_profile} shows the relation between the bait density and the parameters after the calibration.
 
 We can assume a variable bait density across each swath.
 To account for the well known fact that we have a higher density of rodenticide right bellow of the helicopter and lower densities along the edges of the swath. This allows for detecting areas where the bait density is below the lower limit of the target bait density or gaps on the ground without any bait.
@@ -202,7 +202,7 @@ To account for the well known fact that we have a higher density of rodenticide 
 
 ## Density as function of speed and aperture diameter size
 
-As a result of the calibration we obtain Figure\ref{fig:countor_plot}
+As a result of the calibration we obtain Figure \ref{fig:contour_plot}
 
 ```python
 aperture_diameters_domain = np.linspace(min(aperture_diameters), max(aperture_diameters))
