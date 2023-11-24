@@ -192,15 +192,17 @@ plt.xlabel("Distance (m)", size=fontsize)
 plt.ylabel("Density (kg/m$^2$)", size=fontsize);
 plt.savefig("examples/figures/density_profile.png")
 ```
-Figure\ref{fig:contour_plot} shows the relation between the bait density and the parameters after the calibration.
+Figure\ref{fig:density_profile} shows the relation between the bait density and the parameters after the calibration.
 
-We can assume a variable bait density across each swath. To account for the well known fact that we have a higher density of rodenticide right bellow of the helicopter and lower densities along the edges of the swath. This allows for detecting areas where the bait density is below the lower limit of the target bait density or gaps on the ground without any bait.
+We can assume a variable bait density across each swath.
+To account for the well known fact that we have a higher density of rodenticide right bellow of the helicopter and lower densities along the edges of the swath. This allows for detecting areas where the bait density is below the lower limit of the target bait density or gaps on the ground without any bait.
 
 
 ![Bait density $\sigma$ (kg/ha) as a function of the distance from the flight path (m). The dots show the measured density on the ground after a calibration event and the red line show the fitted density model. \label{fig:density_profile}](figures/density_profile.png)
 
-## Calibration model
+## Density as function of speed and aperture diameter size
 
+As a result of the calibration we obtain Figure\ref{fig:countor_plot}
 
 ```python
 aperture_diameters_domain = np.linspace(min(aperture_diameters), max(aperture_diameters))
@@ -259,26 +261,9 @@ plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
 
 ![Surface bait density $\sigma$ (kg/ha) on the color axis as a function of the aperture diameter $d$ (mm) of the bait bucket on the horizontal axis and the helicopter speed $s$ (km/hr) on the vertical axis. \label{fig:contour_plot}](figures/contour_plot.png)
 
-The resulting three-dimensional model, $$\sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w},$$ is shown in Figure \ref{fig:contour_plot}. 
+## Demonstration using a configuration file
 
-During the planning stage of an eradication campaign, this model can be used to determine the diameter of the bait bucket needed to achieve the desired bait density on the ground, ensuring efficient bait coverage, while maximizing resources, time and labor force.
-
-
-# Use cases
-
-For a given island, a particular bait density is required on the ground for a successful rodent eradication.
-This density is determined after studying the ecosystems of the island and the biology of the invasive target species.
-
-We can use the NERD during the planning stage of an eradication campaign.
-We can determine the diameter of the bait bucket needed to achieve the desired bait density on the ground.
-NERD ensures efficient bait coverage while maximizing resources, time, and labor force.
-While planning helicopter flights paths, it is assumed that the bait density within each swath is constant, but variable between swaths.
-
-NERD can assist during the eradication by giving near real-time bait density maps generated in seconds.
-For example, we can consider the effects on density when the helicopter flies with variable speed.
-This map allows us to identify bait gaps during application, thus enabling the efficient use of resources.
-
-# Setting up field parameters
+There is another way to setup the model parameters using a json file.
 
 
 ```python
@@ -303,6 +288,22 @@ plt.savefig("examples/figures/density_map.png")
 
 
 ![Bait density map after a aerial broadcast of rodenticide bait.\label{fig:density_map}](figures/density_map.png)
+
+
+# Use cases
+
+For a given island, a particular bait density is required on the ground for a successful rodent eradication.
+This density is determined after studying the ecosystems of the island and the biology of the invasive target species.
+
+We can use the NERD during the planning stage of an eradication campaign.
+We can determine the diameter of the bait bucket needed to achieve the desired bait density on the ground.
+NERD ensures efficient bait coverage while maximizing resources, time, and labor force.
+While planning helicopter flights paths, it is assumed that the bait density within each swath is constant, but variable between swaths.
+
+NERD can assist during the eradication by giving near real-time bait density maps generated in seconds.
+For example, we can consider the effects on density when the helicopter flies with variable speed.
+This map allows us to identify bait gaps during application, thus enabling the efficient use of resources.
+
 
 # Discussion
 
