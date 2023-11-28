@@ -45,8 +45,7 @@ Lastly, explore the Jupyter notebooks at http://localhost:8080/
 
 ## References
 
-- [Improving the efficiency of aerial rodent eradications by means of the numerical estimation of
-  rodenticide density](https://www.islas.org.mx/articulos_files/Rojas-Mayoral%202019.pdf)
+- [Improving the efficiency of aerial rodent eradications by means of the numerical estimation of rodenticide density](https://doi.org/10.5281/zenodo.10214344)
 
 ---
 
