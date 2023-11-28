@@ -77,14 +77,14 @@ We obtained the mass flow rate as a function of the aperture diameter of the bai
 We repeated this using several aperture diameters and a known initial mass.
 
 
-```python
+```python markdown-code-runner
 import nerd
 import nerd.calibration
 import nerd.density_functions
 ```
 
 
-```python
+```python markdown-code-runner
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch
 import numpy as np
@@ -94,20 +94,20 @@ import pandas as pd
 ## Fit flow rate
 
 
-```python
+```python markdown-code-runner
 flow_data = pd.read_csv("/workdir/tests/data/flow.csv")
 flow_data = flow_data[flow_data.bait_status == "new"][["aperture", "flow"]]
 ```
 
 
-```python
+```python markdown-code-runner
 aperture_diameters = flow_data.aperture.values
 flow_rates = flow_data.flow.values
 flow_rate_function = nerd.calibration.fit_flow_rate(aperture_diameters, flow_rates)
 ```
 
 
-```python
+```python markdown-code-runner
 x = np.linspace(min(aperture_diameters) - 10, max(aperture_diameters) + 10)
 y = flow_rate_function(x)
 fontsize = 15
@@ -130,12 +130,12 @@ plt.savefig("examples/figures/calibration.png", dpi=300, transparent=True)
 ## Swath width
 
 
-```python
+```python markdown-code-runner
 density_profile = pd.read_csv("/workdir/tests/data/profile.csv")
 ```
 
 
-```python
+```python markdown-code-runner
 distance = density_profile.distance.values
 density_kg_per_ha = density_profile.density.values
 density = density_kg_per_ha / 1e4  # To convert densities to kg per square meter
@@ -146,13 +146,13 @@ swath_width = nerd.calibration.get_swath_width(distance, density)
 ## Select best density function
 
 
-```python
+```python markdown-code-runner
 aperture_diameter_data = 55  # milimetres
 helicopter_speed_data = 20.5778  # meters per second (40 knots)
 ```
 
 
-```python
+```python markdown-code-runner
 density_function = nerd.calibration.get_best_density_function(
     distance,
     density,
@@ -171,7 +171,7 @@ estimated_profile = nerd.solver(
 ```
 
 
-```python
+```python markdown-code-runner
 fontsize = 15
 x = np.linspace(min(distance), max(distance))
 y = estimated_profile(x)
@@ -203,7 +203,7 @@ In doing so, we can detect areas with bait density below the lower limit of the 
 
 From the calibration, we obtain Figure \ref{fig:contour_plot}.
 
-```python
+```python markdown-code-runner
 aperture_diameters_domain = np.linspace(min(aperture_diameters), max(aperture_diameters))
 helicopter_speeds_domain = np.linspace(10, 50)
 density_matrix = nerd.calibration.model(
@@ -218,7 +218,7 @@ helicopter_speed_kmh = helicopter_speeds_domain * conversion_factor_ms_to_kmh
 ```
 
 
-```python
+```python markdown-code-runner
 fontsize_ticks = 10
 fontsize_labels = 15
 fontsize_textlabels = 25
@@ -265,17 +265,17 @@ plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
 There is another way to setup the model parameters using a json file.
 
 
-```python
+```python markdown-code-runner
 from nerd.io import Nerd
 ```
 
 
-```python
+```python markdown-code-runner
 config_filepath = "/workdir/tests/data/nerd_config.json"
 ```
 
 
-```python
+```python markdown-code-runner
 plt.figure(figsize=[11, 8])
 nerd_model = Nerd(config_filepath)
 nerd_model.calculate_total_density()
