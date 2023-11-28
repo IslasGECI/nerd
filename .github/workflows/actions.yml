@@ -17,6 +17,18 @@ jobs:
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
     - name: Run preprint.md
       run: markdown-code-runner --verbose examples/preprint.md
+    - name: Remove markdown-code-runner
+      run: |
+        cp examples/preprint.md examples/paper.md
+        sed --in-place "s/python markdown-code-runner/python/g" examples/paper.md
+    - name: Auto-commit paper.md
+      uses: stefanzweifel/git-auto-commit-action@master
+      with:
+        commit_message: 🤖 Sync paper with preprint
+        file_pattern: 'examples/paper.md'
+        commit_user_name: Ciencia de Datos • GECI
+        commit_user_email: ciencia.datos@islas.org.mx
+
   test-notebook:
     name: Test Jupyter notebooks
     runs-on: ubuntu-latest

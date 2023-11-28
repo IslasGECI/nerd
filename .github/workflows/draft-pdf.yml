@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
+      - name: Remove markdown-code-runner
+        run: |
+          cp examples/preprint.md examples/paper.md
+          sed --in-place "s/python markdown-code-runner/python/g" examples/paper.md
       - name: Build proceedings PDF
         uses: openjournals/openjournals-draft-action@master
         with:
