@@ -30,7 +30,7 @@ Invasive rodents are present on approximately 90% of islands worldwide, seriousl
 Therefore, accurate bait density maps must be generated in real-time to maximize the efficiency of rodent eradication campaigns utilizing aerial dispersal methods. 
 Traditionally, conservationists rely on ground-level bait dispersion maps generated using Geographic Information Systems (GIS). 
 However, this approach is time-consuming and based on untested assumptions. 
-To improve the accuracy and efficiency of aerial operations, we developed NERD (Numerical Estimation of Rodenticide Density), an algorithm that performs highly precise calculations and provides mediate results. 
+To improve the accuracy and efficiency of aerial operations, we developed NERD (Numerical Estimation of Rodenticide Density), an algorithm that performs highly precise calculations and provides immediate results. 
 At its core, NERD  is a probability density function describing bait density on the ground as a function of the aperture diameter of the rodenticide bucket and helicopter speed. 
 We have confirmed the effectiveness of the model by successfully utilizing it in two island rodent eradication campaigns: mice eradication on San Benito Oeste (400 ha) in the Mexican Pacific and ship rat eradication on Cayo Centro (539 ha) of Banco Chinchorro in the Mexican Caribbean. 
 Notably, the Cayo Centro campaign is the largest rodent eradication ever conducted on a wet tropical island to date. We have proved the efficiency of NERD and its potential to reduce the overall cost of large-scale rodent eradication campaigns significantly.
@@ -38,7 +38,7 @@ Notably, the Cayo Centro campaign is the largest rodent eradication ever conduct
 # Introduction
 
 Invasive rodent species are incredibly deleterious to island ecosystems, especially those with levels of endemism or those without higher-order predators or predators occupying similar niches to the invasive rodents [@Meyers2000]. 
-Invasive rodent population dynamics are poorly understood on islands [Grant2015]. 
+Invasive rodent population dynamics are poorly understood on islands [@Harper2015]. 
 However, rodents on islands can cause native plant and animal species to decline rapidly and severely, even to extinction [@Medina2011; @Towns2006]. 
 The resultant losses are reflected in reduced biodiversity and, in many cases, invasive rodents becoming the dominant species. 
 In cases of severe rodent invasion, critical island ecosystem services are lost [@Towns2006]. 
@@ -69,7 +69,7 @@ where $\dot{m}$ is the bait flow (kg/s), $s$ is the speed of the helicopter (m/s
 
 # Calibration
 
-Assuming the density is independent of $x$ (i.e., $\sigma$ does not change along the swath width) and expressing the mass flow rate of the bait as a function of the aperture diameter), $\dot{m}(d)$, we obtain a two-parameter model:
+Assuming the density is independent of $x$ (i.e., $\sigma$ does not change along the swath width) and expressing the mass flow rate of the bait as a function of the aperture diameter, $\dot{m}(d)$, we obtain a two-parameter model:
 
 \begin{equation} \sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}. \end{equation}
 
@@ -77,15 +77,14 @@ We obtained the mass flow rate as a function of the aperture diameter of the bai
 We repeated this using several aperture diameters and a known initial mass.
 
 
-```python
+```python markdown-code-runner
 import nerd
 import nerd.calibration
 import nerd.density_functions
 ```
 
 
-```python
-%matplotlib inline
+```python markdown-code-runner
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch
 import numpy as np
@@ -95,20 +94,20 @@ import pandas as pd
 ## Fit flow rate
 
 
-```python
-flow_data = pd.read_csv("/workdir/data/flow.csv")
+```python markdown-code-runner
+flow_data = pd.read_csv("/workdir/tests/data/flow.csv")
 flow_data = flow_data[flow_data.bait_status == "new"][["aperture", "flow"]]
 ```
 
 
-```python
+```python markdown-code-runner
 aperture_diameters = flow_data.aperture.values
 flow_rates = flow_data.flow.values
 flow_rate_function = nerd.calibration.fit_flow_rate(aperture_diameters, flow_rates)
 ```
 
 
-```python
+```python markdown-code-runner
 x = np.linspace(min(aperture_diameters) - 10, max(aperture_diameters) + 10)
 y = flow_rate_function(x)
 fontsize = 15
@@ -125,20 +124,18 @@ plt.savefig("examples/figures/calibration.png", dpi=300, transparent=True)
 ```
 
 
-    
-
 
 ![Flow rate $\dot{m}$ (kg/s) as a function of the aperture diameter [$d$ (mm)]. Each dot represents a calibration even. The blue line is the quadratic model fitted to the data.\label{fig:calibration}](figures/calibration.png)
 
 ## Swath width
 
 
-```python
-density_profile = pd.read_csv("/workdir/data/profile.csv")
+```python markdown-code-runner
+density_profile = pd.read_csv("/workdir/tests/data/profile.csv")
 ```
 
 
-```python
+```python markdown-code-runner
 distance = density_profile.distance.values
 density_kg_per_ha = density_profile.density.values
 density = density_kg_per_ha / 1e4  # To convert densities to kg per square meter
@@ -149,13 +146,13 @@ swath_width = nerd.calibration.get_swath_width(distance, density)
 ## Select best density function
 
 
-```python
+```python markdown-code-runner
 aperture_diameter_data = 55  # milimetres
 helicopter_speed_data = 20.5778  # meters per second (40 knots)
 ```
 
 
-```python
+```python markdown-code-runner
 density_function = nerd.calibration.get_best_density_function(
     distance,
     density,
@@ -174,7 +171,7 @@ estimated_profile = nerd.solver(
 ```
 
 
-```python
+```python markdown-code-runner
 fontsize = 15
 x = np.linspace(min(distance), max(distance))
 y = estimated_profile(x)
@@ -206,7 +203,7 @@ In doing so, we can detect areas with bait density below the lower limit of the 
 
 From the calibration, we obtain Figure \ref{fig:contour_plot}.
 
-```python
+```python markdown-code-runner
 aperture_diameters_domain = np.linspace(min(aperture_diameters), max(aperture_diameters))
 helicopter_speeds_domain = np.linspace(10, 50)
 density_matrix = nerd.calibration.model(
@@ -221,7 +218,7 @@ helicopter_speed_kmh = helicopter_speeds_domain * conversion_factor_ms_to_kmh
 ```
 
 
-```python
+```python markdown-code-runner
 fontsize_ticks = 10
 fontsize_labels = 15
 fontsize_textlabels = 25
@@ -268,29 +265,25 @@ plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
 There is another way to setup the model parameters using a json file.
 
 
-```python
+```python markdown-code-runner
 from nerd.io import Nerd
 ```
 
 
-```python
-config_filepath = "/workdir/data/nerd_config.json"
+```python markdown-code-runner
+config_filepath = "/workdir/tests/data/nerd_config.json"
 ```
 
 
-```python
+```python markdown-code-runner
+plt.figure(figsize=[11, 8])
 nerd_model = Nerd(config_filepath)
 nerd_model.calculate_total_density()
 density_map = nerd_model.export_results_geojson(target_density=0.002)
 plt.savefig("examples/figures/density_map.png")
 ```
 
-    100%|██████████| 6269/6269 [01:33<00:00, 66.83it/s] 
-
-
-
 ![Bait density map after aerial rodenticide broadcast.\label{fig:density_map}](figures/density_map.png)
-
 
 # Use cases
 

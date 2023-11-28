@@ -8,6 +8,7 @@ RUN pip install \
     flake8 \
     geojsoncontour \
     ipykernel \
+    markdown-code-runner \
     mutmut \
     pylint \
     pytest-cov \

@@ -2,22 +2,22 @@
     "name": "nerd-input-data",
     "output_path": "outputs",
     "spatial_resolution": 2,
-    "input_calibration_data": "/workdir/data/expected_calibration_data.csv",
+    "input_calibration_data": "/workdir/tests/data/expected_calibration_data.csv",
     "resources": [
         {
-            "input_data_path": "/workdir/data/multi_files/041220-001.txt",
+            "input_data_path": "/workdir/tests/data/multi_files/041220-001.txt",
             "swap_width": 30,
             "aperture_diameter": 90,
             "density_function": "normal"
         },
         {
-            "input_data_path": "/workdir/data/multi_files/041220-002.txt",
+            "input_data_path": "/workdir/tests/data/multi_files/041220-002.txt",
             "swap_width": 70,
             "aperture_diameter": 95,
             "density_function": "normal"
         },
         {
-            "input_data_path": "/workdir/data/multi_files/041220-003.txt",
+            "input_data_path": "/workdir/tests/data/multi_files/041220-003.txt",
             "swap_width": 175,
             "aperture_diameter": 100,
             "density_function": "normal"
