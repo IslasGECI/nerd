@@ -13,10 +13,10 @@ jobs:
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make check
     - name: Test
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make coverage
-    - name: Run mutation testing
-      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
     - name: Run preprint.md
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} markdown-code-runner --verbose examples/preprint.md
+    - name: Run mutation testing
+      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
     - name: Remove markdown-code-runner
       run: |
         cp examples/preprint.md examples/paper.md
