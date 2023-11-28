@@ -23,9 +23,8 @@ pip install geci-nerd
 You can explore the functionality of NERD through interactive Jupyter notebooks.
 These are the options to access the demonstration notebooks:
 
-- Visit [IslasGECI.org](http://islasgeci.org:8080) for an online Jupyter Notebook environment.
 - View a static version on GitHub.
-  Simply navigate to the ["examples"](https://github.com/IslasGECI/nerd/blob/develop/examples/) folder.
+  Simply navigate to the [calibration-demo](https://github.com/IslasGECI/nerd/blob/develop/examples/calibration-demo.ipynb) and [tiling_demo](https://github.com/IslasGECI/nerd/blob/develop/examples/tiling_demo.ipynb) notebooks.
 - Alternatively, you can run the Jupyter notebooks locally using Docker.
   Follow the instructions below:
 
