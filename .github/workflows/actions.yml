@@ -15,8 +15,8 @@ jobs:
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make coverage
     - name: Run mutation testing
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
-    - name: Run paper.md
-      run: markdown-code-runner --verbose examples/paper.md
+    - name: Run preprint.md
+      run: markdown-code-runner --verbose examples/preprint.md
   test-notebook:
     name: Test Jupyter notebooks
     runs-on: ubuntu-latest
