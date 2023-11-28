@@ -16,7 +16,7 @@ jobs:
     - name: Run mutation testing
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
     - name: Run preprint.md
-      run: markdown-code-runner --verbose examples/preprint.md
+      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} markdown-code-runner --verbose examples/preprint.md
     - name: Remove markdown-code-runner
       run: |
         cp examples/preprint.md examples/paper.md
