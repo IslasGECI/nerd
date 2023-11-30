@@ -73,7 +73,9 @@ linter:
 mutants: setup
 	mutmut run --paths-to-mutate ${module}
 
-setup: clean
+setup: clean install
+
+install:
 	pip install --editable .
 
 tests:

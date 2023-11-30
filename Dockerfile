@@ -16,4 +16,5 @@ RUN pip install \
     rope
 RUN apt update && apt install --yes \
     shellcheck
+RUN make install
 CMD make
