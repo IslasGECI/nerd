@@ -92,7 +92,7 @@ jobs:
     - name: Check notebook format
       run: docker run --volume ${PWD}/Makefile:/workdir/Makefile islasgeci/nerd_demo:${GITHUB_SHA:0:4} make check_notebook
     - name: Verify the notebooks run
-      run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh --volume ${PWD}/examples:/workdir --volume ${PWD}/tests/data:/workdir/data --volume ${PWD}/examples/figures:/workdir/figures islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
+      run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh --volume ${PWD}/examples:/workdir --volume ${PWD}/tests/data:/workdir/tests/data --volume ${PWD}/examples/figures:/workdir/examples/figures islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
     - name: Docker log-in
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
