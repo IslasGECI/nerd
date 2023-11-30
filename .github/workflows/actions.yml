@@ -61,7 +61,7 @@ jobs:
         docker load --input /tmp/image.tar
         docker image ls -a          
     - name: Run preprint.md
-      run: docker run islasgeci/nerd:latest markdown-code-runner --verbose examples/preprint.md
+      run: docker run --volume ${PWD}/examples/figures:/workdir/examples/figures islasgeci/nerd:latest markdown-code-runner --verbose examples/preprint.md
     - name: Remove markdown-code-runner
       run: |
         cp examples/preprint.md examples/paper.md
