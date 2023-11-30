@@ -34,9 +34,9 @@ jobs:
         name: image
         path: /tmp
     - name: Load image
-        run: |
-          docker load --input /tmp/image.tar
-          docker image ls -a          
+      run: |
+        docker load --input /tmp/image.tar
+        docker image ls -a          
     - name: Check format
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make check
     - name: Test
@@ -57,9 +57,9 @@ jobs:
         name: image
         path: /tmp
     - name: Load image
-        run: |
-          docker load --input /tmp/image.tar
-          docker image ls -a          
+      run: |
+        docker load --input /tmp/image.tar
+        docker image ls -a          
     - name: Run preprint.md
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} markdown-code-runner --verbose examples/preprint.md
     - name: Remove markdown-code-runner
@@ -121,9 +121,9 @@ jobs:
         name: image
         path: /tmp
     - name: Load image
-        run: |
-          docker load --input /tmp/image.tar
-          docker image ls -a          
+      run: |
+        docker load --input /tmp/image.tar
+        docker image ls -a          
     - name: Build demo Docker image
       run: docker build --file Dockerfile.demo --tag=islasgeci/nerd_demo:latest --tag islasgeci/nerd_demo:${GITHUB_SHA:0:4} .
     - name: Push latest Docker image to Docker Hub
