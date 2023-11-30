@@ -1,22 +1,67 @@
 name: Test and publish
 on: push
 jobs:
-  test-module:
-    name: Test Python module 🐍
+  build-image:
+    name: Build Docker image 🐋
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
       uses: actions/checkout@main
-    - name: Build Docker image
-      run: docker build --tag islasgeci/nerd:latest --tag islasgeci/nerd:${GITHUB_SHA:0:4} .
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Build and export
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        tags: islasgeci/nerd:latest,islasgeci/nerd:${GITHUB_SHA:0:4}
+        outputs: type=docker,dest=/tmp/image.tar
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: image
+        path: /tmp/image.tar
+
+  test-module:
+    name: Test Python module 🐍
+    needs: build-image
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@main
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: image
+        path: /tmp
+    - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a          
     - name: Check format
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make check
     - name: Test
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make coverage
-    - name: Run preprint.md
-      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} markdown-code-runner --verbose examples/preprint.md
     - name: Run mutation testing
       run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
+
+  test-paper:
+    name: Test JOSS Paper
+    needs: build-image
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@main
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: image
+        path: /tmp
+    - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a          
+    - name: Run preprint.md
+      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} markdown-code-runner --verbose examples/preprint.md
     - name: Remove markdown-code-runner
       run: |
         cp examples/preprint.md examples/paper.md
@@ -26,6 +71,13 @@ jobs:
       with:
         commit_message: 🤖 Sync paper with preprint
         file_pattern: 'examples/paper.md'
+        commit_user_name: Ciencia de Datos • GECI
+        commit_user_email: ciencia.datos@islas.org.mx
+    - name: Auto-commit figures
+      uses: stefanzweifel/git-auto-commit-action@master
+      with:
+        commit_message: 🤖 Autocommit figures
+        file_pattern: 'examples/figures/*.png'
         commit_user_name: Ciencia de Datos • GECI
         commit_user_email: ciencia.datos@islas.org.mx
 
@@ -41,23 +93,19 @@ jobs:
       run: docker run --volume ${PWD}/Makefile:/workdir/Makefile islasgeci/nerd_demo:${GITHUB_SHA:0:4} make check_notebook
     - name: Verify the notebooks run
       run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh --volume ${PWD}/examples:/workdir --volume ${PWD}/tests/data:/workdir/data --volume ${PWD}/examples/figures:/workdir/figures islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
-    - name: Auto-commit python files
-      uses: stefanzweifel/git-auto-commit-action@master
-      with:
-        commit_message: 🤖 Apply automatic changes
-        file_pattern: 'examples/*.py'
-        commit_user_name: Ciencia de Datos • GECI
-        commit_user_email: ciencia.datos@islas.org.mx
-    - name: Auto-commit figures
-      uses: stefanzweifel/git-auto-commit-action@master
-      with:
-        commit_message: 🤖 Autocommit figures
-        file_pattern: 'examples/figures/*.png'
-        commit_user_name: Ciencia de Datos • GECI
-        commit_user_email: ciencia.datos@islas.org.mx
-  push:
-    name: Push module to PyPI and images to Docker Hub
-    needs: [test-notebook, test-module]
+    - name: Docker log-in
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+    - name: Push latest demo image to Docker Hub
+      run: docker push islasgeci/nerd_demo:latest
+    - name: Push demo SHA to Docker Hub
+      run: docker push islasgeci/nerd_demo:${GITHUB_SHA:0:4}
+
+  update-docker:
+    name: Push image to Docker Hub
+    needs: [test-notebook, test-module, test-paper]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
@@ -67,18 +115,29 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-    - name: Build Docker image
-      run: docker build --tag islasgeci/nerd:latest --tag islasgeci/nerd:${GITHUB_SHA:0:4} .
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: image
+        path: /tmp
+    - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a          
     - name: Build demo Docker image
       run: docker build --file Dockerfile.demo --tag=islasgeci/nerd_demo:latest --tag islasgeci/nerd_demo:${GITHUB_SHA:0:4} .
     - name: Push latest Docker image to Docker Hub
       run: docker push islasgeci/nerd:latest
     - name: Push SHA tag to Docker Hub
       run: docker push islasgeci/nerd:${GITHUB_SHA:0:4}
-    - name: Push latest demo image to Docker Hub
-      run: docker push islasgeci/nerd_demo:latest
-    - name: Push demo SHA to Docker Hub
-      run: docker push islasgeci/nerd_demo:${GITHUB_SHA:0:4}
+  
+  update-pypi:
+    name: Push module to PyPI
+    needs: test-module
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@main
     - name: Set up Python 3.9
       uses: actions/setup-python@main
       with:
