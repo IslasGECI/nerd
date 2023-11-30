@@ -13,7 +13,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        tags: islasgeci/nerd:latest,islasgeci/nerd:${GITHUB_SHA:0:4}
+        tags: islasgeci/nerd:latest
         outputs: type=docker,dest=/tmp/image.tar
     - name: Upload artifact
       uses: actions/upload-artifact@v3
@@ -38,11 +38,11 @@ jobs:
         docker load --input /tmp/image.tar
         docker image ls -a          
     - name: Check format
-      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make check
+      run: docker run islasgeci/nerd:latest make check
     - name: Test
-      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make coverage
+      run: docker run islasgeci/nerd:latest make coverage
     - name: Run mutation testing
-      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} make mutants
+      run: docker run islasgeci/nerd:latest make mutants
 
   test-paper:
     name: Test JOSS Paper
@@ -61,7 +61,7 @@ jobs:
         docker load --input /tmp/image.tar
         docker image ls -a          
     - name: Run preprint.md
-      run: docker run islasgeci/nerd:${GITHUB_SHA:0:4} markdown-code-runner --verbose examples/preprint.md
+      run: docker run islasgeci/nerd:latest markdown-code-runner --verbose examples/preprint.md
     - name: Remove markdown-code-runner
       run: |
         cp examples/preprint.md examples/paper.md
@@ -124,12 +124,12 @@ jobs:
       run: |
         docker load --input /tmp/image.tar
         docker image ls -a          
-    - name: Build demo Docker image
-      run: docker build --file Dockerfile.demo --tag=islasgeci/nerd_demo:latest --tag islasgeci/nerd_demo:${GITHUB_SHA:0:4} .
     - name: Push latest Docker image to Docker Hub
       run: docker push islasgeci/nerd:latest
     - name: Push SHA tag to Docker Hub
-      run: docker push islasgeci/nerd:${GITHUB_SHA:0:4}
+      run: |
+        docker tag islasgeci/nerd:latest islasgeci/nerd:${GITHUB_SHA:0:4}
+        docker push islasgeci/nerd:${GITHUB_SHA:0:4}
   
   update-pypi:
     name: Push module to PyPI
