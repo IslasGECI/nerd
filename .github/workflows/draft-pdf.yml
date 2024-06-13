@@ -1,6 +1,7 @@
 name: JOSS PDF Generator
 on: push
 
+
 jobs:
   paper:
     runs-on: ubuntu-latest
@@ -10,6 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
+      - name: Spellcheck
+        uses: rojopolis/spellcheck-github-actions@master
+        with:
+          config_path: .github/config/.spellcheck.yml
+          task_name: Markdown
       - name: Remove markdown-code-runner
         run: |
           cp examples/preprint.md examples/paper.md

@@ -1,0 +1,13 @@
+matrix:
+- name: Markdown
+  aspell:
+    lang: en
+    ignore-case: true
+    mode: markdown
+  dictionary:
+    wordlists:
+    - .github/config/.wordlist.txt
+    encoding: utf-8
+  sources:
+  - 'examples/*.md'
+  default_encoding: utf-8
