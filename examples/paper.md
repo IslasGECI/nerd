@@ -42,7 +42,7 @@ Invasive rodent population dynamics are poorly understood on islands [@Harper201
 However, rodents on islands can cause native plant and animal species to decline rapidly and severely, even to extinction [@Medina2011; @Towns2006]. 
 The resultant losses are reflected in reduced biodiversity and, in many cases, invasive rodents becoming the dominant species. 
 In cases of severe rodent invasion, critical island ecosystem services are lost [@Towns2006]. 
-The first step to resorting to islands and recovering biodiversity is eradicating invasive rodents.
+The first step to restoring islands and recovering biodiversity is eradicating invasive rodents.
 Effective strategies to combat the detrimental effects of invasive rodent species on island ecosystems aim to minimize or eradicate rodent populations, facilitating the restoration of native species and crucial ecosystem processes. 
 The aerial broadcast of rodenticide is widely utilized and involves dispersing rodenticide bait pellets from helicopters over target areas. 
 Aerial broadcast effectively reduces rodent populations and has been successfully employed in numerous eradication campaigns [@Keitt2015].
@@ -63,7 +63,7 @@ At its core, NERD is a probability density function that describes bait density 
 @Rojas2019 showed that the function $\sigma(x,y)$ to represent superficial bait density (kg/m$^2$) must comply with the following property:
 \begin{equation}
 \int_{-\frac{w}{2}}^{+\frac{w}{2}} \sigma(x)dx=\frac{\dot{m}}{s},
-  \label{eq:integralDeDensidadEsflujoSobreRapidez}
+  \label{eq:DensityIntegralIsFluxOverSpeed}
 \end{equation}
 where $\dot{m}$ is the bait flow (kg/s), $s$ is the speed of the helicopter (m/s), and $w$ is the swath width (m).
 
@@ -125,7 +125,7 @@ plt.savefig("examples/figures/calibration.png", dpi=300, transparent=True)
 
 
 
-![Flow rate $\dot{m}$ (kg/s) as a function of the aperture diameter [$d$ (mm)]. Each dot represents a calibration even. The blue line is the quadratic model fitted to the data.\label{fig:calibration}](figures/calibration.png)
+![Flow rate $\dot{m}$ (kg/s) as a function of the aperture diameter [$d$ (mm)]. Each dot represents a calibration event. The blue curve is the quadratic model fitted to the data.\label{fig:calibration}](figures/calibration.png)
 
 ## Swath width
 
