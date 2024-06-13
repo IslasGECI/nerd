@@ -77,120 +77,16 @@ We obtained the mass flow rate as a function of the aperture diameter of the bai
 We repeated this using several aperture diameters and a known initial mass.
 
 
-```python
-import nerd
-import nerd.calibration
-import nerd.density_functions
-```
-
-
-```python
-import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch
-import numpy as np
-import pandas as pd
-```
-
 ## Fit flow rate
-
-
-```python
-flow_data = pd.read_csv("/workdir/tests/data/flow.csv")
-flow_data = flow_data[flow_data.bait_status == "new"][["aperture", "flow"]]
-```
-
-
-```python
-aperture_diameters = flow_data.aperture.values
-flow_rates = flow_data.flow.values
-flow_rate_function = nerd.calibration.fit_flow_rate(aperture_diameters, flow_rates)
-```
-
-
-```python
-x = np.linspace(min(aperture_diameters) - 10, max(aperture_diameters) + 10)
-y = flow_rate_function(x)
-fontsize = 15
-
-plt.plot(x, y)
-plt.plot(aperture_diameters, flow_rates, "o", markeredgecolor="k")
-plt.xlabel("Aperture diameter (mm)", size=fontsize)
-plt.ylabel("Mass flow rate (kg/s)", size=fontsize)
-plt.xlim(50, 100)
-plt.ylim(0, 3)
-plt.xticks(size=fontsize)
-plt.yticks(size=fontsize)
-plt.savefig("examples/figures/calibration.png", dpi=300, transparent=True)
-```
-
 
 
 ![Flow rate $\dot{m}$ (kg/s) as a function of the aperture diameter [$d$ (mm)]. Each dot represents a calibration event. The blue curve is the quadratic model fitted to the data.\label{fig:calibration}](figures/calibration.png)
 
 ## Swath width
 
-
-```python
-density_profile = pd.read_csv("/workdir/tests/data/profile.csv")
-```
-
-
-```python
-distance = density_profile.distance.values
-density_kg_per_ha = density_profile.density.values
-density = density_kg_per_ha / 1e4  # To convert densities to kg per square meter
-swath_width = nerd.calibration.get_swath_width(distance, density)
-```
-
-
 ## Select best density function
 
 
-```python
-aperture_diameter_data = 55  # milimetres
-helicopter_speed_data = 20.5778  # meters per second (40 knots)
-```
-
-
-```python
-density_function = nerd.calibration.get_best_density_function(
-    distance,
-    density,
-    aperture_diameter_data,
-    helicopter_speed_data,
-    swath_width,
-    flow_rate_function,
-)
-estimated_profile = nerd.solver(
-    aperture_diameter_data,
-    helicopter_speed_data,
-    swath_width,
-    density_function,
-    flow_rate_function,
-)
-```
-
-
-```python
-fontsize = 15
-x = np.linspace(min(distance), max(distance))
-y = estimated_profile(x)
-estimated_density = estimated_profile(distance)
-plt.figure(figsize=[11, 8])
-plt.plot(x, y, "r", label="estimated density")
-plt.vlines(distance, density, density + estimated_density - density, "k")
-plt.plot(
-    distance,
-    density,
-    "s",
-    color="orange",
-    markeredgecolor="black",
-    label="real density",
-)
-plt.xlabel("Distance (m)", size=fontsize)
-plt.ylabel("Density (kg/m$^2$)", size=fontsize);
-plt.savefig("examples/figures/density_profile.png")
-```
 Figure \ref{fig:density_profile} shows the relationship between the bait density and parameters following calibration.
 
 We can assume a variable bait density across each swath to account for the higher density of rodenticide below the helicopter compared to the lower density along the edges of the swath. 
@@ -203,60 +99,6 @@ In doing so, we can detect areas with bait density below the lower limit of the 
 
 From the calibration, we obtain Figure \ref{fig:contour_plot}.
 
-```python
-aperture_diameters_domain = np.linspace(min(aperture_diameters), max(aperture_diameters))
-helicopter_speeds_domain = np.linspace(10, 50)
-density_matrix = nerd.calibration.model(
-    aperture_diameters_domain,
-    helicopter_speeds_domain,
-    swath_width,
-    nerd.density_functions.uniform,
-    flow_rate_function,
-)
-conversion_factor_ms_to_kmh = 3.6
-helicopter_speed_kmh = helicopter_speeds_domain * conversion_factor_ms_to_kmh
-```
-
-
-```python
-fontsize_ticks = 10
-fontsize_labels = 15
-fontsize_textlabels = 25
-fig, ax = plt.subplots(figsize=(20, 10))
-color_contour = ax.contourf(
-    aperture_diameters_domain,
-    helicopter_speeds_domain,
-    density_matrix * 1e4,
-    zorder=0,
-    vmin=0,
-    vmax=20,
-)
-line_contour = ax.contour(
-    aperture_diameters_domain,
-    helicopter_speeds_domain,
-    density_matrix * 1e4,
-    levels=color_contour.levels,
-    colors="k",
-)
-cbar = fig.colorbar(color_contour)
-ax.clabel(line_contour, line_contour.levels, inline=True, fontsize=20, fmt="%1.0f")
-plt.xlabel("Aperture diameter (mm)", size=fontsize_textlabels)
-plt.ylabel("Helicopter speed (km/h)", size=fontsize_textlabels)
-ytickslocs = ax.get_yticks()
-y_ticks_kmh = ytickslocs * 3.6
-plt.yticks(ytickslocs, y_ticks_kmh.astype(int), size=fontsize_ticks)
-plt.xticks(size=fontsize_ticks)
-cbar.ax.set_ylabel("Density (kg/ha)", size=fontsize_labels)
-cbar.ax.tick_params(labelsize=fontsize_ticks)
-plt.axhline(18.0056, color="r", linewidth=2)
-plt.text(65, 18.6, "35 knot", size=fontsize_labels, color="k")
-plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
-```
-
-
-    
-    
-
 
 ![Surface bait density $\sigma$ (kg/ha) on the color axis as a function of the aperture diameter $d$ (mm) of the bait bucket on the horizontal axis and the helicopter speed $s$ (km/hr) on the vertical axis. \label{fig:contour_plot}](figures/contour_plot.png)
 
@@ -264,24 +106,6 @@ plt.savefig("examples/figures/contour_plot.png", dpi=300, transparent=True)
 
 There is another way to setup the model parameters using a json file.
 
-
-```python
-from nerd.io import Nerd
-```
-
-
-```python
-config_filepath = "/workdir/tests/data/nerd_config.json"
-```
-
-
-```python
-plt.figure(figsize=[11, 8])
-nerd_model = Nerd(config_filepath)
-nerd_model.calculate_total_density()
-density_map = nerd_model.export_results_geojson(target_density=0.002)
-plt.savefig("examples/figures/density_map.png")
-```
 
 ![Bait density map after aerial rodenticide broadcast.\label{fig:density_map}](figures/density_map.png)
 

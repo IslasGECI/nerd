@@ -16,7 +16,7 @@ jobs:
         tags: islasgeci/nerd:latest
         outputs: type=docker,dest=/tmp/image.tar
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@main
       with:
         name: image
         path: /tmp/image.tar
@@ -29,7 +29,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@main
     - name: Download artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@main
       with:
         name: image
         path: /tmp
@@ -43,43 +43,6 @@ jobs:
       run: docker run islasgeci/nerd:latest make coverage
     - name: Run mutation testing
       run: docker run islasgeci/nerd:latest make mutants
-
-  test-paper:
-    name: Test JOSS Paper
-    needs: build-image
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@main
-    - name: Download artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: image
-        path: /tmp
-    - name: Load image
-      run: |
-        docker load --input /tmp/image.tar
-        docker image ls -a          
-    - name: Run preprint.md
-      run: docker run --volume ${PWD}/examples/figures:/workdir/examples/figures islasgeci/nerd:latest markdown-code-runner --verbose examples/preprint.md
-    - name: Remove markdown-code-runner
-      run: |
-        cp examples/preprint.md examples/paper.md
-        sed --in-place "s/python markdown-code-runner/python/g" examples/paper.md
-    - name: Auto-commit paper.md
-      uses: stefanzweifel/git-auto-commit-action@master
-      with:
-        commit_message: 🤖 Sync paper with preprint
-        file_pattern: 'examples/paper.md'
-        commit_user_name: Ciencia de Datos • GECI
-        commit_user_email: ciencia.datos@islas.org.mx
-    - name: Auto-commit figures
-      uses: stefanzweifel/git-auto-commit-action@master
-      with:
-        commit_message: 🤖 Autocommit figures
-        file_pattern: 'examples/figures/*.png'
-        commit_user_name: Ciencia de Datos • GECI
-        commit_user_email: ciencia.datos@islas.org.mx
 
   test-notebook:
     name: Test Jupyter notebooks
@@ -105,7 +68,7 @@ jobs:
 
   update-docker:
     name: Push image to Docker Hub
-    needs: [test-notebook, test-module, test-paper]
+    needs: [test-notebook, test-module]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
@@ -116,7 +79,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
     - name: Download artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@main
       with:
         name: image
         path: /tmp
