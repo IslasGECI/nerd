@@ -33,9 +33,6 @@ check:
 	flake8 --max-line-length 100 tests
 	shellcheck */*.sh
 
-check_notebook:
-	black --check --line-length 100 /workdir/*.ipynb
-
 clean:
 	rm --force --recursive ${module}.egg-info
 	rm --force --recursive ${module}/__pycache__
@@ -59,10 +56,6 @@ format:
 	black --line-length 100 ${module}
 	black --line-length 100 setup.py
 	black --line-length 100 tests
-	black --line-length 100 examples/*.ipynb
-
-format_notebook:
-	black --line-length 100 /workdir/*.ipynb
 
 init: setup tests
 
