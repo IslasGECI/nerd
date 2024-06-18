@@ -9,5 +9,5 @@ matrix:
     - .github/config/.wordlist.txt
     encoding: utf-8
   sources:
-  - 'examples/*.md'
+  - 'paper/*.md'
   default_encoding: utf-8
