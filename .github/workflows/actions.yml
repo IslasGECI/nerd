@@ -51,9 +51,9 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@main
     - name: Build demo Docker image
-      run: docker build --file Dockerfile.demo --tag=islasgeci/nerd_demo:latest --tag islasgeci/nerd_demo:${GITHUB_SHA:0:4} .
+      run: docker build --file example_notebooks/Dockerfile --tag=islasgeci/nerd_demo:latest --tag islasgeci/nerd_demo:${GITHUB_SHA:0:4} .
     - name: Check notebook format
-      run: docker run --volume ${PWD}/Makefile:/workdir/Makefile islasgeci/nerd_demo:${GITHUB_SHA:0:4} make check_notebook
+      run: docker run islasgeci/nerd_demo:${GITHUB_SHA:0:4} make check_notebook
     - name: Verify the notebooks run
       run: docker run --volume ${PWD}/tests/test_notebooks.sh:/workdir/tests/test_notebooks.sh islasgeci/nerd_demo:${GITHUB_SHA:0:4} tests/test_notebooks.sh
     - name: Docker log-in

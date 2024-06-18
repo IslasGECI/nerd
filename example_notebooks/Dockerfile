@@ -1,7 +1,7 @@
 FROM jupyter/minimal-notebook
 USER root
 WORKDIR /workdir
-COPY . /workdir
+COPY example_notebooks /workdir
 COPY tests/data /workdir/tests/data
 RUN apt update && apt install --yes \
     make

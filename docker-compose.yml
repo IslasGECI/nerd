@@ -11,7 +11,7 @@ services:
   demo:
     build:
       context: .
-      dockerfile: Dockerfile.demo
+      dockerfile: example_notebooks/Dockerfile
     image: islasgeci/nerd_demo:latest
     command: bash
     volumes:
