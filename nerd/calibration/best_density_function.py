@@ -1,12 +1,16 @@
 from typing import Callable
 import inspect
 import numpy as np
-from . import get_rmse_from_function_array
-from .. import density_functions as df
+from nerd.calibration.rmse import get_rmse_from_function_array
+from nerd import density_functions
 
 
 def get_density_functions_array():
-    return [getattr(df, element) for element in dir(df) if inspect.isfunction(getattr(df, element))]
+    return [
+        getattr(density_functions, element)
+        for element in dir(density_functions)
+        if inspect.isfunction(getattr(density_functions, element))
+    ]
 
 
 def select_best_density_function_from_array(

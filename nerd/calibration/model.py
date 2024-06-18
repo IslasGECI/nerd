@@ -1,6 +1,6 @@
 from typing import Callable
 import numpy as np
-from .. import solver
+from nerd import solver
 
 
 def model(

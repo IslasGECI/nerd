@@ -1,5 +1,5 @@
 import numpy as np
-from .. import solver
+from nerd import solver
 
 
 def get_rmse_from_function_array(
