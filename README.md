@@ -34,6 +34,8 @@ and install from source
 pip install --editable .
 ```
 
+`geci-nerd` is developed under Python >= 3.8. 🐍
+
 ## Jupyter Notebook Demonstrations 📒
 
 You can explore the functionality of NERD through interactive Jupyter notebooks.
