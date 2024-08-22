@@ -23,7 +23,7 @@ dependencies = [
         "tqdm",
         "utm",
 ]
-requires-python=">=3.9"
+requires-python=">=3.8"
 dynamic = ["version", "description"]
 
 [project.urls]
