@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Rojas-Mayoral
+    given-names: Evaristo
+    orcid: https://orcid.org/0000-0001-6812-9562
+  - family-names: Rojas-Mayoral
+    given-names: Braulio
+    orcid: https://orcid.org/0000-0003-2358-2843
+  - family-names: Méndez-Sánchez
+    given-names: Federico A.
+    orcid: https://orcid.org/0000-0002-3467-0008
+title: "NERD: Numerical Estimation of Rodenticide Density. Journal of Open Source Software"
+version: 0.4.0
