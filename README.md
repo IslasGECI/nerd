@@ -12,13 +12,29 @@ bait bucket, and helicopter speed and produces maps of bait density on the groun
 NERD also facilitates the planning of helicopter flight paths and allows for the instant
 identification of areas with low or high bait density.
 
-## Installation
+## Installation 🏗️
 
-```
+To install from pip:
+
+```bash
 pip install geci-nerd
 ```
 
-## Jupyter Notebook Demonstrations
+or clone directly from Github
+
+```bash
+git clone git@github.com:IslasGECI/nerd.git
+
+cd nerd
+```
+
+and install from source
+
+```bash
+pip install --editable .
+```
+
+## Jupyter Notebook Demonstrations 📒
 
 You can explore the functionality of NERD through interactive Jupyter notebooks.
 These are the options to access the demonstration notebooks:
@@ -42,7 +58,7 @@ docker run --detach --publish 8080:8888 --rm islasgeci/nerd_demo
 
 Lastly, explore the Jupyter notebooks at http://localhost:8080/
 
-## References
+## References ✏️
 
 - Rojas-Mayoral, E. (2019) «Improving the efficiency of aerial rodent eradications by means of the numerical estimation of rodenticide density». Island invasives: scaling up to meet the challenge, IUCN. [doi: 10.5281/zenodo.10214344.](https://doi.org/10.5281/zenodo.10214344)
 
