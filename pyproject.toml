@@ -1,0 +1,33 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "geci-nerd"
+authors = [
+    {name = "Ciencia de Datos • GECI", email = "ciencia.datos@islas.org.mx"},
+]
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+dependencies = [
+        "descartes",
+        "fiona",
+        "geojsoncontour",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "scipy",
+        "shapely",
+        "tqdm",
+        "utm",
+]
+requires-python=">=3.9"
+dynamic = ["version", "description"]
+
+[project.urls]
+Source = "https://github.com/IslasGECI/nerd"
+
+[tool.flit.module]
+name = "nerd"
