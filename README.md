@@ -69,8 +69,8 @@ Lastly, explore the Jupyter notebooks at http://localhost:8080/
 [Grupo de Ecología y Conservación de Islas](https://www.islas.org.mx/)
 
 ## Contributors
-<a href="https://github.com//IslasGECI/nerd/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=/IslasGECI/nerd" />
+<a href="https://github.com/IslasGECI/nerd/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=IslasGECI/nerd" />
 </a>
 
 ### Guidelines
