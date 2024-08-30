@@ -66,7 +66,7 @@ Lastly, explore the Jupyter notebooks at http://localhost:8080/
 
 ---
 ## Author
-[Grupo de Ecología y Conservación de Islas](https://www.islas.org.mx/)
+- [Grupo de Ecología y Conservación de Islas](https://www.islas.org.mx/)
 
 ## Contributors
 <a href="https://github.com/IslasGECI/nerd/graphs/contributors">
