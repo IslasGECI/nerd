@@ -3,7 +3,6 @@ import pandas as pd
 import pytest
 
 import nerd
-import nerd.calibration
 import nerd.density_functions
 
 
