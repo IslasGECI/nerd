@@ -2,7 +2,7 @@ import numpy as np
 from nerd import solver
 
 
-def get_rmse_from_function_array(
+def _get_rmse_from_function_array(
     distance,
     density,
     aperture_diameter,

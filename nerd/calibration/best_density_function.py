@@ -1,7 +1,7 @@
 from typing import Callable
 import inspect
 import numpy as np
-from nerd.calibration.rmse import get_rmse_from_function_array
+from nerd.calibration.rmse import _get_rmse_from_function_array
 from nerd import density_functions
 
 
@@ -22,7 +22,7 @@ def _select_best_density_function_from_array(
     density_functions,
     flow_rate_function,
 ):
-    rmse = get_rmse_from_function_array(
+    rmse = _get_rmse_from_function_array(
         distance,
         density,
         aperture_diameter_data,
