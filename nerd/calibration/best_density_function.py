@@ -5,7 +5,7 @@ from nerd.calibration.rmse import get_rmse_from_function_array
 from nerd import density_functions
 
 
-def get_density_functions_array():
+def _get_density_functions_array():
     return [
         getattr(density_functions, element)
         for element in dir(density_functions)
@@ -13,7 +13,7 @@ def get_density_functions_array():
     ]
 
 
-def select_best_density_function_from_array(
+def _select_best_density_function_from_array(
     distance,
     density,
     aperture_diameter_data,
@@ -58,8 +58,8 @@ def get_best_density_function(
     :return: Function for density (kg/m^2) profile with respect to perpendicular
         distance (m) to flight path, swath width (m), and scale factor
     """
-    density_functions = get_density_functions_array()
-    return select_best_density_function_from_array(
+    density_functions = _get_density_functions_array()
+    return _select_best_density_function_from_array(
         distance,
         density,
         aperture_diameter_data,
