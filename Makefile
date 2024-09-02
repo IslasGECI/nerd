@@ -54,7 +54,12 @@ format:
 	black --line-length 100 ${module}
 	black --line-length 100 tests
 
-init: setup tests
+init: init_git setup tests
+
+init_git:
+	git config --global --add safe.directory /workdir
+	git config --global user.name "Ciencia de Datos • GECI"
+	git config --global user.email "ciencia.datos@islas.org.mx"
 
 linter:
 	$(call lint, ${module})
@@ -70,3 +75,21 @@ install:
 
 tests:
 	pytest --verbose
+
+red: format
+	pytest --verbose \
+	&& git restore tests/*.py \
+	|| (git add tests/*.py && git commit -m "🛑🧪 Fail tests")
+	chmod g+w -R .
+
+green: format
+	pytest --verbose \
+	&& (git add ${module}/*/*.py tests/*.py && git commit -m "✅ Pass tests") \
+	|| git restore ${module}/*/*.py
+	chmod g+w -R .
+
+refactor: format
+	pytest --verbose \
+	&& (git add ${module}/*/*.py tests/*.py && git commit -m "♻️  Refactor") \
+	|| git restore ${module}/*/*.py tests/*.py
+	chmod g+w -R .
