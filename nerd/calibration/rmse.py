@@ -1,16 +1,17 @@
+from typing import Callable
 import numpy as np
 from nerd import solver
 
 
 def _get_rmse_from_function_array(
-    distance,
-    density,
-    aperture_diameter,
-    helicopter_speed,
-    swath_width,
-    density_functions_array,
-    flow_rate_function,
-):
+    distance: np.ndarray,
+    density: np.ndarray,
+    aperture_diameter: float,
+    helicopter_speed: float,
+    swath_width: float,
+    density_functions_array: list,
+    flow_rate_function: Callable,
+) -> np.ndarray:
     rmse = []
     for funcion_densidad in density_functions_array:
         rmse_auxiliar = get_rmse(
