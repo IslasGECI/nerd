@@ -1,4 +1,4 @@
-from nerd.io.geo2utm import geo2utm
+from nerd.io.geo2utm import _geo2utm
 from nerd.calibration.fit_flow_rate import fit_flow_rate
 import nerd.density_functions
 import pandas as pd
@@ -17,7 +17,7 @@ def tracmap2csv(tracmap_filename, csv_filename):
 
 def import_tracmap(tracmap_filename, csv_filename="input_data.csv"):
     tracmap2csv(tracmap_filename, csv_filename)
-    return geo2utm(csv_filename)
+    return _geo2utm(csv_filename)
 
 
 def import_calibration_data(flux_filename):
@@ -43,7 +43,7 @@ def import_multifile_tracmap(config_file, csv_filename):
     check_output_directory(output_path)
     concatenated_tracmap_path = "{}/{}".format(output_path, csv_filename)
     df_concat.to_csv(concatenated_tracmap_path, index=False)
-    return geo2utm(concatenated_tracmap_path)
+    return _geo2utm(concatenated_tracmap_path)
 
 
 def create_df_list(config_file):

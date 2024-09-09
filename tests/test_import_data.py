@@ -6,7 +6,7 @@ from pandas._testing import assert_frame_equal
 import numpy as np
 from numpy.testing import assert_array_almost_equal
 from nerd.density_functions import uniform
-from nerd.io.geo2utm import geo2utm
+from nerd.io.geo2utm import _geo2utm
 from nerd.io.import_data import (
     check_output_directory,
     import_multifile_tracmap,
@@ -70,7 +70,7 @@ def test_import_multifile_tracmap():
     tracmap_data = import_multifile_tracmap(config_file, "input_concatenated_data.csv")
     assert os.path.isfile(config_file_path)
     assert isinstance(tracmap_data, pd.DataFrame)
-    assert_frame_equal(tracmap_data, geo2utm("tests/data/expected_concatenated_data.csv"))
+    assert_frame_equal(tracmap_data, _geo2utm("tests/data/expected_concatenated_data.csv"))
 
 
 def test_create_df_list():
