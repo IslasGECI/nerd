@@ -134,7 +134,7 @@ def test_get_rmse(
     distance = 10
     density = 3
     rmse_expected = 2.999241666666667
-    rmse_obtained = nerd.calibration.get_rmse(
+    rmse_obtained = nerd.calibration._get_rmse(
         distance,
         density,
         aperture_diameter,
