@@ -5,7 +5,7 @@ from nerd.calibration.rmse import _get_rmse_from_function_array
 from nerd import density_functions
 
 
-def _get_density_functions_array() -> list:
+def _get_density_functions_array():
     return [
         getattr(density_functions, element)
         for element in dir(density_functions)
@@ -36,8 +36,8 @@ def _select_best_density_function_from_array(
 
 
 def get_best_density_function(
-    distance: np.array,
-    density: np.array,
+    distance: np.ndarray,
+    density: np.ndarray,
     aperture_diameter_data: float,
     helicopter_speed_data: float,
     swath_width: float,

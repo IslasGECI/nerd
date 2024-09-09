@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def uniform(distance: float, width: float, parameter: float) -> float:
+def uniform(distance: np.ndarray, width: float, parameter: float) -> np.floating:
     """
     Uniform distribution for density profiles
     :param distance: Distance from flight path

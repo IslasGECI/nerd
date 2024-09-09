@@ -4,12 +4,12 @@ from nerd import solver
 
 
 def model(
-    aperture_diameter: np.array,
-    helicopter_speed: np.array,
+    aperture_diameter: np.ndarray,
+    helicopter_speed: np.ndarray,
     swath_width: float,
     density_function: Callable,
     flow_rate_function: Callable,
-) -> np.array:
+) -> np.ndarray:
     """
     Calculate the density matrix directly below the helicopter (nadir) as a
         function of the aperture diameter and the helicopter speed

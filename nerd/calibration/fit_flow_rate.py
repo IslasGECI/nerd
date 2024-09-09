@@ -2,7 +2,7 @@ from typing import Callable
 import numpy as np
 
 
-def fit_flow_rate(aperture_diameters: np.array, flow_rates: np.array) -> Callable:
+def fit_flow_rate(aperture_diameters: np.ndarray, flow_rates: np.ndarray) -> Callable:
     """
     Fit quadratic model for flow rate (kg/s) as a function of aperture diameter (mm)
     :param aperture_diameters: Array of diameters of the bucket aperture in

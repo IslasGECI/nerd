@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def get_swath_width(distance: np.array, density: np.array, alpha: float = 0.05) -> float:
+def get_swath_width(distance: np.ndarray, density: np.ndarray, alpha: float = 0.05) -> float:
     """
     Get swath width (m) from density profile using data points with density greater than zero
     :param distance: Perpendicular distance in meters (m) from flight path
