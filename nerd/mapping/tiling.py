@@ -9,6 +9,7 @@ from tqdm import tqdm
 import fiona
 import matplotlib.pyplot as plt
 import numpy as np
+from typing import Tuple
 
 
 def slope_between_two_points(y2, y1, x2, x1):
@@ -202,7 +203,7 @@ def calculate_total_density(
     config_file,
     spatial_resolution,
     flow_rate_function,
-):
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     tracks = Tracks(track_data)
     x_grid, y_grid = generate_grid_density(
         tracks.x_coordinates, tracks.y_coordinates, spatial_resolution
