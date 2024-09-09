@@ -128,25 +128,6 @@ def test_calibration_model(aperture_diameters, swath_width, flow_rate_function):
     np.testing.assert_allclose(density_matrix, matrix_expected, rtol=1e-4)
 
 
-def test_get_rmse(
-    aperture_diameter, helicopter_speed, swath_width, funcion_densidad, flow_rate_function
-):
-    distance = 10
-    density = 3
-    rmse_expected = 2.999241666666667
-    rmse_obtained = nerd.calibration.get_rmse(
-        distance,
-        density,
-        aperture_diameter,
-        helicopter_speed,
-        swath_width,
-        funcion_densidad,
-        flow_rate_function,
-    )
-    print(rmse_obtained)
-    np.testing.assert_almost_equal(rmse_obtained, rmse_expected)
-
-
 def test_solver(aperture_diameter, helicopter_speed, swath_width, flow_rate_function):
     funcion_densidad = nerd.density_functions.normal
     fitted_function = nerd.solver(

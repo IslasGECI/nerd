@@ -14,7 +14,7 @@ def _get_rmse_from_function_array(
 ) -> np.ndarray:
     rmse = []
     for funcion_densidad in density_functions_array:
-        rmse_auxiliar = get_rmse(
+        rmse_auxiliar = _get_rmse(
             distance,
             density,
             aperture_diameter,
@@ -27,15 +27,15 @@ def _get_rmse_from_function_array(
     return np.array(rmse)
 
 
-def get_rmse(
-    distance,
-    density,
-    aperture_diameter,
-    helicopter_speed,
-    swath_width,
-    density_function,
-    flow_rate_function,
-):
+def _get_rmse(
+    distance: np.ndarray,
+    density: np.ndarray,
+    aperture_diameter: float,
+    helicopter_speed: float,
+    swath_width: float,
+    density_function: Callable,
+    flow_rate_function: Callable,
+) -> float:
     density_profile_function = solver(
         aperture_diameter, helicopter_speed, swath_width, density_function, flow_rate_function
     )
