@@ -30,6 +30,8 @@ check:
 	flake8 --max-line-length 100 ${module}
 	flake8 --max-line-length 100 tests
 	shellcheck */*.sh
+	mypy ${module}
+	mypy tests
 
 clean:
 	rm --force --recursive ${module}.egg-info

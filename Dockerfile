@@ -10,10 +10,13 @@ RUN pip install \
     ipykernel \
     markdown-code-runner \
     mutmut \
+    mypy \
+    pandas-stubs \
     pylint \
-    pytest-cov \
     pytest \
-    rope
+    pytest-cov \
+    rope \
+    types-tqdm
 RUN apt update && apt install --yes \
     shellcheck
 RUN make install
