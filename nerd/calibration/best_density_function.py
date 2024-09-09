@@ -14,14 +14,14 @@ def _get_density_functions_array() -> list:
 
 
 def _select_best_density_function_from_array(
-    distance,
-    density,
-    aperture_diameter_data,
-    helicopter_speed_data,
-    swath_width,
-    density_functions,
-    flow_rate_function,
-):
+    distance: np.ndarray,
+    density: np.ndarray,
+    aperture_diameter_data: float,
+    helicopter_speed_data: float,
+    swath_width: float,
+    density_functions: list,
+    flow_rate_function: Callable,
+) -> Callable:
     rmse = _get_rmse_from_function_array(
         distance,
         density,
