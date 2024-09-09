@@ -204,6 +204,23 @@ def calculate_total_density(
     spatial_resolution,
     flow_rate_function,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """
+    Calculate the total density distribution over a grid based on helicopter tracks and flow rates.
+
+    This function takes in helicopter track data and configuration parameters to compute the density distribution over
+    a spatial grid. The process involves selecting parameters for each segment of the tracks, solving the density
+    function, and summing up the density values within the corresponding grid cells.
+
+    Returns:
+    --------
+    Tuple[np.ndarray, np.ndarray, np.ndarray]
+        - x_grid : np.ndarray
+            The x-coordinates of the grid.
+        - y_grid : np.ndarray
+            The y-coordinates of the grid.
+        - total_density_grid : np.ndarray
+            The calculated total density distribution over the grid.
+    """
     tracks = Tracks(track_data)
     x_grid, y_grid = generate_grid_density(
         tracks.x_coordinates, tracks.y_coordinates, spatial_resolution
