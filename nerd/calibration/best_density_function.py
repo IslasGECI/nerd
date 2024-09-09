@@ -5,7 +5,7 @@ from nerd.calibration.rmse import _get_rmse_from_function_array
 from nerd import density_functions
 
 
-def _get_density_functions_array():
+def _get_density_functions_array() -> list:
     return [
         getattr(density_functions, element)
         for element in dir(density_functions)
