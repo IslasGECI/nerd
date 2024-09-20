@@ -40,7 +40,7 @@ def _cell_edges_slopes(x: list, y: list, node_index: int) -> tuple:
     return start_slope, end_slope
 
 
-def _calculate_cell_y_limits(slope, limit_x, x_coord, y_coord):
+def _calculate_cell_y_limits(slope: float, limit_x: float, x_coord: float, y_coord: float) -> float:
     return slope * (limit_x - x_coord) + y_coord
 
 
