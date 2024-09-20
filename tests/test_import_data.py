@@ -1,7 +1,12 @@
 import os
 import pandas as pd
 from nerd.density_functions.density_functions import normal
-from nerd.io import _import_tracmap, _tracmap2csv, _import_calibration_data, select_density_function
+from nerd.io import (
+    _import_tracmap,
+    _tracmap2csv,
+    _import_calibration_data,
+    _select_density_function,
+)
 from pandas._testing import assert_frame_equal
 import numpy as np
 from numpy.testing import assert_array_almost_equal
@@ -53,7 +58,7 @@ def test_import_calibration_data():
 
 def test_select_density_function():
     expected_function = uniform
-    obtained_function = select_density_function("uniform")
+    obtained_function = _select_density_function("uniform")
     assert expected_function == obtained_function
 
 

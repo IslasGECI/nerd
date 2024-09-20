@@ -63,9 +63,11 @@ def _create_df_list(config_file: pd.Series) -> list:
 def _select_parameters_by_index(config_file: pd.Series, n_file: int) -> tuple:
     aperture_diameter = config_file["resources"][n_file]["aperture_diameter"]
     swap_width = config_file["resources"][n_file]["swap_width"]
-    density_function = select_density_function(config_file["resources"][n_file]["density_function"])
+    density_function = _select_density_function(
+        config_file["resources"][n_file]["density_function"]
+    )
     return aperture_diameter, swap_width, density_function
 
 
-def select_density_function(function_name):
+def _select_density_function(function_name: str) -> Callable:
     return getattr(nerd.density_functions, function_name)

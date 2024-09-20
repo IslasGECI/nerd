@@ -6,7 +6,7 @@ from nerd.io.import_data import (  # noqa
     _check_output_directory,
     _import_multifile_tracmap,
     _create_df_list,
-    select_density_function,
+    _select_density_function,
     _select_parameters_by_index,
 )
 from nerd.io.Nerd import *  # noqa
