@@ -1,4 +1,4 @@
-from nerd.mapping.tiling import (
+from nerd.mapping.tiling import (  # noqa
     _slope_between_two_points,
     orthogonal_slope,
     safe_divition,
@@ -24,4 +24,4 @@ from nerd.mapping.tiling import (
     calculate_total_density,
     generate_uniform_density_array,
     density_contours_intervals,
-)  # noqa
+)

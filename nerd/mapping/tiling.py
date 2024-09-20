@@ -12,7 +12,7 @@ import numpy as np
 from typing import Tuple
 
 
-def _slope_between_two_points(y2, y1, x2, x1):
+def _slope_between_two_points(y2: float, y1: float, x2: float, x1: float) -> float:
     return safe_divition(y2 - y1, x2 - x1)
 
 
