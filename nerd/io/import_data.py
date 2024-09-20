@@ -20,7 +20,7 @@ def _import_tracmap(tracmap_filename: str, csv_filename: str = "input_data.csv")
     return _geo2utm(csv_filename)
 
 
-def import_calibration_data(flux_filename):
+def _import_calibration_data(flux_filename):
     flux_data = pd.read_csv(
         flux_filename,
         header=None,

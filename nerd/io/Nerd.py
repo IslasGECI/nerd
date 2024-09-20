@@ -1,5 +1,5 @@
 from nerd.io.import_data import (
-    import_calibration_data,
+    _import_calibration_data,
     import_multifile_tracmap,
     check_output_directory,
 )
@@ -47,7 +47,7 @@ class Nerd:
             self.config_file, "input_concatenated_data.csv"
         )
         self._spatial_resolution = self.config_file.get("spatial_resolution")
-        self._flow_rate_function = import_calibration_data(
+        self._flow_rate_function = _import_calibration_data(
             self.config_file.get("input_calibration_data")
         )
 
