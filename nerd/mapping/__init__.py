@@ -7,7 +7,7 @@ from nerd.mapping.tiling import (  # noqa
     _cell_y_coordinates,
     _calculate_cell_x_limits,
     _cell_x_coordinates,
-    generate_cell_from_coordinates,
+    _generate_cell_from_coordinates,
     calculate_cell_density_in_border,
     density_in_tile,
     is_inside_tile,
