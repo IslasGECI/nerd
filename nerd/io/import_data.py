@@ -8,7 +8,7 @@ column_names = ["date", "time", "Lat", "Lon", "Speed", "heading", "Logging_on", 
 flux_calibation_colums = ["aperture_diameter", "flux"]
 
 
-def _tracmap2csv(tracmap_filename, csv_filename):
+def _tracmap2csv(tracmap_filename: str, csv_filename: str) -> None:
     tracmap_data = pd.read_csv(
         tracmap_filename, header=None, names=column_names, usecols=[i for i in range(1, 9)]
     )
