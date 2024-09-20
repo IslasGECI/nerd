@@ -26,7 +26,7 @@ def _safe_divition(numerator: float, denominator: float) -> float:
     return numerator / denominator
 
 
-def _cell_edges_slopes(x, y, node_index):
+def _cell_edges_slopes(x: list, y: list, node_index: int) -> tuple:
     start_slope = _orthogonal_slope(
         _slope_between_two_points(
             y[node_index + 1], y[node_index - 1], x[node_index + 1], x[node_index - 1]
