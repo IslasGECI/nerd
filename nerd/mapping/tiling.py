@@ -63,7 +63,7 @@ def _calculate_cell_x_limits(r: float, orthogonal_slope: float, x_coord: float) 
     return r / np.sqrt(1 + orthogonal_slope**2) + x_coord
 
 
-def cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node):
+def _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node):
     start_x1 = _calculate_cell_x_limits(r, start_orthogonal_slope, x[node])
     start_x2 = _calculate_cell_x_limits(-r, start_orthogonal_slope, x[node])
     end_x1 = _calculate_cell_x_limits(r, end_orthogonal_slope, x[node + 1])
@@ -74,7 +74,7 @@ def cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
 def generate_cell_from_coordinates(x, y, node, stripe_width, spatial_resolution):
     r = stripe_width / 2
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
-    x_rect = cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
+    x_rect = _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
     y_rect = _cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, y, node)
     x_rect, y_rect = check_directions(x_rect, y_rect)
     return x_rect, y_rect
