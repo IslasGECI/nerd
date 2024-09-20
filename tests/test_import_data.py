@@ -9,7 +9,7 @@ from nerd.density_functions import uniform
 from nerd.io.geo2utm import _geo2utm
 from nerd.io.import_data import (
     _check_output_directory,
-    import_multifile_tracmap,
+    _import_multifile_tracmap,
     create_df_list,
     select_parameters_by_index,
 )
@@ -67,7 +67,7 @@ def test_check_output_directory():
 def test_import_multifile_tracmap():
     config_file_path = "tests/data/expected_nerd_config.json"
     config_file = pd.read_json(config_file_path, typ="series")
-    tracmap_data = import_multifile_tracmap(config_file, "input_concatenated_data.csv")
+    tracmap_data = _import_multifile_tracmap(config_file, "input_concatenated_data.csv")
     assert os.path.isfile(config_file_path)
     assert isinstance(tracmap_data, pd.DataFrame)
     assert_frame_equal(tracmap_data, _geo2utm("tests/data/expected_concatenated_data.csv"))

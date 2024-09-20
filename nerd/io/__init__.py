@@ -4,7 +4,7 @@ from nerd.io.import_data import (  # noqa
     _import_tracmap,
     _import_calibration_data,
     _check_output_directory,
-    import_multifile_tracmap,
+    _import_multifile_tracmap,
     create_df_list,
     select_density_function,
     select_parameters_by_index,

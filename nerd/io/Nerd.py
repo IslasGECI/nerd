@@ -1,6 +1,6 @@
 from nerd.io.import_data import (
     _import_calibration_data,
-    import_multifile_tracmap,
+    _import_multifile_tracmap,
     _check_output_directory,
 )
 from nerd.mapping.tiling import (
@@ -43,7 +43,7 @@ class Nerd:
         """
         self.config_json_type_option = "series"
         self.config_file = pd.read_json(config_file_path, typ=self.config_json_type_option)
-        self._tracmap_data = import_multifile_tracmap(
+        self._tracmap_data = _import_multifile_tracmap(
             self.config_file, "input_concatenated_data.csv"
         )
         self._spatial_resolution = self.config_file.get("spatial_resolution")
