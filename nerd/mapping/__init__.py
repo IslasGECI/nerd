@@ -5,7 +5,7 @@ from nerd.mapping.tiling import (  # noqa
     _cell_edges_slopes,
     _calculate_cell_y_limits,
     _cell_y_coordinates,
-    calculate_cell_x_limits,
+    _calculate_cell_x_limits,
     cell_x_coordinates,
     generate_cell_from_coordinates,
     calculate_cell_density_in_border,

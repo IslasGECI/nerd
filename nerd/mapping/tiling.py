@@ -59,15 +59,15 @@ def _cell_y_coordinates(
     return [start_y1, start_y2, end_y2, end_y1, start_y1]
 
 
-def calculate_cell_x_limits(r, _orthogonal_slope, x_coord):
+def _calculate_cell_x_limits(r, _orthogonal_slope, x_coord):
     return r / np.sqrt(1 + _orthogonal_slope**2) + x_coord
 
 
 def cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node):
-    start_x1 = calculate_cell_x_limits(r, start_orthogonal_slope, x[node])
-    start_x2 = calculate_cell_x_limits(-r, start_orthogonal_slope, x[node])
-    end_x1 = calculate_cell_x_limits(r, end_orthogonal_slope, x[node + 1])
-    end_x2 = calculate_cell_x_limits(-r, end_orthogonal_slope, x[node + 1])
+    start_x1 = _calculate_cell_x_limits(r, start_orthogonal_slope, x[node])
+    start_x2 = _calculate_cell_x_limits(-r, start_orthogonal_slope, x[node])
+    end_x1 = _calculate_cell_x_limits(r, end_orthogonal_slope, x[node + 1])
+    end_x2 = _calculate_cell_x_limits(-r, end_orthogonal_slope, x[node + 1])
     return [start_x1, start_x2, end_x2, end_x1, start_x1]
 
 
