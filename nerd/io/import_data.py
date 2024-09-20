@@ -3,6 +3,7 @@ from nerd.calibration.fit_flow_rate import fit_flow_rate
 import nerd.density_functions
 import pandas as pd
 import os
+from typing import Callable
 
 column_names = ["date", "time", "Lat", "Lon", "Speed", "heading", "Logging_on", "altitude"]
 flux_calibation_colums = ["aperture_diameter", "flux"]
@@ -20,7 +21,7 @@ def _import_tracmap(tracmap_filename: str, csv_filename: str = "input_data.csv")
     return _geo2utm(csv_filename)
 
 
-def _import_calibration_data(flux_filename):
+def _import_calibration_data(flux_filename: str) -> Callable:
     flux_data = pd.read_csv(
         flux_filename,
         header=None,
