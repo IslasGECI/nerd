@@ -8,7 +8,7 @@ from numpy.testing import assert_array_almost_equal
 from nerd.density_functions import uniform
 from nerd.io.geo2utm import _geo2utm
 from nerd.io.import_data import (
-    check_output_directory,
+    _check_output_directory,
     import_multifile_tracmap,
     create_df_list,
     select_parameters_by_index,
@@ -59,7 +59,7 @@ def test_select_density_function():
 
 def test_check_output_directory():
     output_path = "./example_dir"
-    check_output_directory(output_path)
+    _check_output_directory(output_path)
     directory_exists = os.path.exists(output_path)
     assert directory_exists is True
 

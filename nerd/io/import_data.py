@@ -32,7 +32,7 @@ def _import_calibration_data(flux_filename: str) -> Callable:
     return fit_flow_rate(flux_data["aperture_diameter"].to_numpy(), flux_data["flux"].to_numpy())
 
 
-def check_output_directory(output_path):
+def _check_output_directory(output_path):
     if not os.path.exists(output_path):
         os.mkdir(output_path)
 
@@ -41,7 +41,7 @@ def import_multifile_tracmap(config_file, csv_filename):
     df_list = create_df_list(config_file)
     df_concat = pd.concat(df_list)
     output_path = config_file.get("output_path")
-    check_output_directory(output_path)
+    _check_output_directory(output_path)
     concatenated_tracmap_path = "{}/{}".format(output_path, csv_filename)
     df_concat.to_csv(concatenated_tracmap_path, index=False)
     return _geo2utm(concatenated_tracmap_path)

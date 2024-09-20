@@ -3,7 +3,7 @@ from nerd.io.import_data import (  # noqa
     _tracmap2csv,
     _import_tracmap,
     _import_calibration_data,
-    check_output_directory,
+    _check_output_directory,
     import_multifile_tracmap,
     create_df_list,
     select_density_function,

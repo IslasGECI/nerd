@@ -1,7 +1,7 @@
 from nerd.io.import_data import (
     _import_calibration_data,
     import_multifile_tracmap,
-    check_output_directory,
+    _check_output_directory,
 )
 from nerd.mapping.tiling import (
     calculate_total_density,
@@ -94,7 +94,7 @@ class Nerd:
         )
         geojson = geojsoncontour.contourf_to_geojson(contourf=contours, unit="m")
         geojson = json.loads(geojson)
-        check_output_directory(self.config_file.get("output_path"))
+        _check_output_directory(self.config_file.get("output_path"))
         with open(
             "{}/nerd_geojson.json".format(self.config_file.get("output_path")), "w"
         ) as outfile:
