@@ -16,7 +16,7 @@ def _slope_between_two_points(y2: float, y1: float, x2: float, x1: float) -> flo
     return safe_divition(y2 - y1, x2 - x1)
 
 
-def _orthogonal_slope(slope):
+def _orthogonal_slope(slope: float) -> float:
     return safe_divition(-1, slope)
 
 
