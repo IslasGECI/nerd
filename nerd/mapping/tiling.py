@@ -44,7 +44,14 @@ def _calculate_cell_y_limits(slope: float, limit_x: float, x_coord: float, y_coo
     return slope * (limit_x - x_coord) + y_coord
 
 
-def _cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, y, node):
+def _cell_y_coordinates(
+    start_orthogonal_slope: float,
+    end_orthogonal_slope: float,
+    x_rect: list,
+    x: list,
+    y: list,
+    node: int,
+) -> list:
     start_y1 = _calculate_cell_y_limits(start_orthogonal_slope, x_rect[0], x[node], y[node])
     start_y2 = _calculate_cell_y_limits(start_orthogonal_slope, x_rect[1], x[node], y[node])
     end_y2 = _calculate_cell_y_limits(end_orthogonal_slope, x_rect[2], x[node + 1], y[node + 1])
