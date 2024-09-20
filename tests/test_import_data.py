@@ -10,7 +10,7 @@ from nerd.io.geo2utm import _geo2utm
 from nerd.io.import_data import (
     _check_output_directory,
     _import_multifile_tracmap,
-    create_df_list,
+    _create_df_list,
     select_parameters_by_index,
 )
 
@@ -73,10 +73,10 @@ def test_import_multifile_tracmap():
     assert_frame_equal(tracmap_data, _geo2utm("tests/data/expected_concatenated_data.csv"))
 
 
-def test_create_df_list():
+def test__create_df_list():
     config_file_path = "tests/data/expected_nerd_config.json"
     config_file = pd.read_json(config_file_path, typ="series")
-    obtained_df_list = create_df_list(config_file)
+    obtained_df_list = _create_df_list(config_file)
     assert isinstance(obtained_df_list, list)
     for obtained_df in obtained_df_list:
         assert isinstance(obtained_df, pd.DataFrame)

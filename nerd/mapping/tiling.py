@@ -1,6 +1,6 @@
 from matplotlib import path
 from nerd import solver
-from nerd.io import select_parameters_by_index, create_df_list
+from nerd.io import select_parameters_by_index, _create_df_list
 from nerd.density_functions import uniform
 from scipy.interpolate import griddata
 from shapely import geometry
@@ -225,7 +225,7 @@ def calculate_total_density(
     x_grid, y_grid = generate_grid_density(
         tracks.x_coordinates, tracks.y_coordinates, spatial_resolution
     )
-    df_list = create_df_list(config_file)
+    df_list = _create_df_list(config_file)
     datafiles_lenghts = np.cumsum([len(df) for df in df_list])
     n_file = 0
     aperture_diameter, swap_width, density_function = select_parameters_by_index(
