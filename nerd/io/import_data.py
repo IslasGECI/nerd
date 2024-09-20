@@ -47,7 +47,7 @@ def _import_multifile_tracmap(config_file: pd.Series, csv_filename: str) -> pd.D
     return _geo2utm(concatenated_tracmap_path)
 
 
-def _create_df_list(config_file):
+def _create_df_list(config_file: pd.Series) -> list:
     df_list = [
         pd.read_csv(
             resources["input_data_path"],
@@ -60,7 +60,7 @@ def _create_df_list(config_file):
     return df_list
 
 
-def select_parameters_by_index(config_file, n_file):
+def _select_parameters_by_index(config_file, n_file):
     aperture_diameter = config_file["resources"][n_file]["aperture_diameter"]
     swap_width = config_file["resources"][n_file]["swap_width"]
     density_function = select_density_function(config_file["resources"][n_file]["density_function"])

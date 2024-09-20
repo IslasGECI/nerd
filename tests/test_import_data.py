@@ -11,7 +11,7 @@ from nerd.io.import_data import (
     _check_output_directory,
     _import_multifile_tracmap,
     _create_df_list,
-    select_parameters_by_index,
+    _select_parameters_by_index,
 )
 
 
@@ -82,7 +82,7 @@ def test__create_df_list():
         assert isinstance(obtained_df, pd.DataFrame)
 
 
-def test_select_parameters_by_index():
+def test__select_parameters_by_index():
     config_file_path = "tests/data/expected_nerd_config.json"
     config_file = pd.read_json(config_file_path, typ="series")
     expected_aperture_diameter = 95
@@ -92,7 +92,7 @@ def test_select_parameters_by_index():
         obtained_aperture_diameter,
         obtained_swap_width,
         obtained_density_function,
-    ) = select_parameters_by_index(config_file, 1)
+    ) = _select_parameters_by_index(config_file, 1)
     assert expected_aperture_diameter == obtained_aperture_diameter
     assert expected_density_function == obtained_density_function
     assert expected_swap_width == obtained_swap_width

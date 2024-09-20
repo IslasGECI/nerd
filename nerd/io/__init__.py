@@ -7,6 +7,6 @@ from nerd.io.import_data import (  # noqa
     _import_multifile_tracmap,
     _create_df_list,
     select_density_function,
-    select_parameters_by_index,
+    _select_parameters_by_index,
 )
 from nerd.io.Nerd import *  # noqa

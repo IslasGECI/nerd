@@ -1,6 +1,6 @@
 from matplotlib import path
 from nerd import solver
-from nerd.io import select_parameters_by_index, _create_df_list
+from nerd.io import _select_parameters_by_index, _create_df_list
 from nerd.density_functions import uniform
 from scipy.interpolate import griddata
 from shapely import geometry
@@ -228,7 +228,7 @@ def calculate_total_density(
     df_list = _create_df_list(config_file)
     datafiles_lenghts = np.cumsum([len(df) for df in df_list])
     n_file = 0
-    aperture_diameter, swap_width, density_function = select_parameters_by_index(
+    aperture_diameter, swap_width, density_function = _select_parameters_by_index(
         config_file, n_file
     )
     x_grid_ravel = np.ravel(x_grid)
@@ -242,7 +242,7 @@ def calculate_total_density(
         else:
             if i >= datafiles_lenghts[n_file]:
                 n_file += 1
-            aperture_diameter, swap_width, density_function = select_parameters_by_index(
+            aperture_diameter, swap_width, density_function = _select_parameters_by_index(
                 config_file, n_file
             )
             density_function_lambda = solver(
