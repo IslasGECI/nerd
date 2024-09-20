@@ -1,6 +1,6 @@
 from nerd.io.geo2utm import _geo2utm  # noqa
 from nerd.io.import_data import (  # noqa
-    tracmap2csv,
+    _tracmap2csv,
     import_tracmap,
     import_calibration_data,
     check_output_directory,

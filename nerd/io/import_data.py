@@ -8,7 +8,7 @@ column_names = ["date", "time", "Lat", "Lon", "Speed", "heading", "Logging_on", 
 flux_calibation_colums = ["aperture_diameter", "flux"]
 
 
-def tracmap2csv(tracmap_filename, csv_filename):
+def _tracmap2csv(tracmap_filename, csv_filename):
     tracmap_data = pd.read_csv(
         tracmap_filename, header=None, names=column_names, usecols=[i for i in range(1, 9)]
     )
@@ -16,7 +16,7 @@ def tracmap2csv(tracmap_filename, csv_filename):
 
 
 def import_tracmap(tracmap_filename, csv_filename="input_data.csv"):
-    tracmap2csv(tracmap_filename, csv_filename)
+    _tracmap2csv(tracmap_filename, csv_filename)
     return _geo2utm(csv_filename)
 
 

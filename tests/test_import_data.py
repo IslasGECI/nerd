@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from nerd.density_functions.density_functions import normal
-from nerd.io import import_tracmap, tracmap2csv, import_calibration_data, select_density_function
+from nerd.io import import_tracmap, _tracmap2csv, import_calibration_data, select_density_function
 from pandas._testing import assert_frame_equal
 import numpy as np
 from numpy.testing import assert_array_almost_equal
@@ -17,7 +17,7 @@ from nerd.io.import_data import (
 
 def test_tracmap2csv():
     expected_csv = pd.read_csv("tests/data/expected_input_data.csv")
-    tracmap2csv(
+    _tracmap2csv(
         tracmap_filename="tests/data/tracmap_sample_data.txt",
         csv_filename="tests/data/imported_data.csv",
     )
