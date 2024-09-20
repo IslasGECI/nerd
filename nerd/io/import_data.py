@@ -15,7 +15,7 @@ def _tracmap2csv(tracmap_filename: str, csv_filename: str) -> None:
     tracmap_data.to_csv(csv_filename, index=False)
 
 
-def import_tracmap(tracmap_filename, csv_filename="input_data.csv"):
+def _import_tracmap(tracmap_filename, csv_filename="input_data.csv"):
     _tracmap2csv(tracmap_filename, csv_filename)
     return _geo2utm(csv_filename)
 
