@@ -10,7 +10,7 @@ from nerd.mapping import (
     reorder_end_tile,
     safe_divition,
     sign_of_direction,
-    slope_between_two_points,
+    _slope_between_two_points,
     is_inside_tile,
     generate_contours,
     create_contour_polygon_list,
@@ -113,7 +113,7 @@ class TestMapping(TestCase):
 
     def test_slope_between_two_points(self):
         expected = 1.0
-        obtained = slope_between_two_points(2, 1, 2, 1)
+        obtained = _slope_between_two_points(2, 1, 2, 1)
         assert expected == obtained
 
     def test_orthogonal_slope(self):

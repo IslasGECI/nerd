@@ -1,5 +1,5 @@
 from nerd.mapping.tiling import (
-    slope_between_two_points,
+    _slope_between_two_points,
     orthogonal_slope,
     safe_divition,
     cell_edges_slopes,
