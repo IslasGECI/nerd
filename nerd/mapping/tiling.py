@@ -16,7 +16,7 @@ def _slope_between_two_points(y2: float, y1: float, x2: float, x1: float) -> flo
     return safe_divition(y2 - y1, x2 - x1)
 
 
-def orthogonal_slope(slope):
+def _orthogonal_slope(slope):
     return safe_divition(-1, slope)
 
 
@@ -27,12 +27,12 @@ def safe_divition(numerator, denominator):
 
 
 def cell_edges_slopes(x, y, node_index):
-    start_slope = orthogonal_slope(
+    start_slope = _orthogonal_slope(
         _slope_between_two_points(
             y[node_index + 1], y[node_index - 1], x[node_index + 1], x[node_index - 1]
         )
     )
-    end_slope = orthogonal_slope(
+    end_slope = _orthogonal_slope(
         _slope_between_two_points(
             y[node_index + 2], y[node_index], x[node_index + 2], x[node_index]
         )
@@ -52,8 +52,8 @@ def cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, 
     return [start_y1, start_y2, end_y2, end_y1, start_y1]
 
 
-def calculate_cell_x_limits(r, orthogonal_slope, x_coord):
-    return r / np.sqrt(1 + orthogonal_slope**2) + x_coord
+def calculate_cell_x_limits(r, _orthogonal_slope, x_coord):
+    return r / np.sqrt(1 + _orthogonal_slope**2) + x_coord
 
 
 def cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node):

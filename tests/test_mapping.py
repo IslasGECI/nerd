@@ -6,7 +6,7 @@ from nerd.mapping import (
     density_in_tile,
     generate_cell_from_coordinates,
     generate_tile_direction_arrays,
-    orthogonal_slope,
+    _orthogonal_slope,
     reorder_end_tile,
     safe_divition,
     sign_of_direction,
@@ -118,7 +118,7 @@ class TestMapping(TestCase):
 
     def test_orthogonal_slope(self):
         expected = -1
-        obtained = orthogonal_slope(1)
+        obtained = _orthogonal_slope(1)
         assert expected == obtained
 
     def test_slopes_from_coordinates(self):
