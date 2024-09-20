@@ -20,7 +20,7 @@ def _orthogonal_slope(slope: float) -> float:
     return _safe_divition(-1, slope)
 
 
-def _safe_divition(numerator, denominator):
+def _safe_divition(numerator: float, denominator: float) -> float:
     if denominator == 0:
         return np.inf
     return numerator / denominator
