@@ -73,7 +73,9 @@ def _cell_x_coordinates(
     return [start_x1, start_x2, end_x2, end_x1, start_x1]
 
 
-def _generate_cell_from_coordinates(x, y, node, stripe_width, spatial_resolution):
+def _generate_cell_from_coordinates(
+    x: list, y: list, node: int, stripe_width: float, spatial_resolution: int
+) -> tuple:
     r = stripe_width / 2
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
     x_rect = _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
