@@ -40,15 +40,15 @@ def _cell_edges_slopes(x: list, y: list, node_index: int) -> tuple:
     return start_slope, end_slope
 
 
-def calculate_cell_y_limits(slope, limit_x, x_coord, y_coord):
+def _calculate_cell_y_limits(slope, limit_x, x_coord, y_coord):
     return slope * (limit_x - x_coord) + y_coord
 
 
 def cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, y, node):
-    start_y1 = calculate_cell_y_limits(start_orthogonal_slope, x_rect[0], x[node], y[node])
-    start_y2 = calculate_cell_y_limits(start_orthogonal_slope, x_rect[1], x[node], y[node])
-    end_y2 = calculate_cell_y_limits(end_orthogonal_slope, x_rect[2], x[node + 1], y[node + 1])
-    end_y1 = calculate_cell_y_limits(end_orthogonal_slope, x_rect[3], x[node + 1], y[node + 1])
+    start_y1 = _calculate_cell_y_limits(start_orthogonal_slope, x_rect[0], x[node], y[node])
+    start_y2 = _calculate_cell_y_limits(start_orthogonal_slope, x_rect[1], x[node], y[node])
+    end_y2 = _calculate_cell_y_limits(end_orthogonal_slope, x_rect[2], x[node + 1], y[node + 1])
+    end_y1 = _calculate_cell_y_limits(end_orthogonal_slope, x_rect[3], x[node + 1], y[node + 1])
     return [start_y1, start_y2, end_y2, end_y1, start_y1]
 
 

@@ -3,7 +3,7 @@ from nerd.mapping.tiling import (  # noqa
     _orthogonal_slope,
     _safe_divition,
     _cell_edges_slopes,
-    calculate_cell_y_limits,
+    _calculate_cell_y_limits,
     cell_y_coordinates,
     calculate_cell_x_limits,
     cell_x_coordinates,
