@@ -60,7 +60,7 @@ def _create_df_list(config_file: pd.Series) -> list:
     return df_list
 
 
-def _select_parameters_by_index(config_file, n_file):
+def _select_parameters_by_index(config_file: pd.Series, n_file: int) -> tuple:
     aperture_diameter = config_file["resources"][n_file]["aperture_diameter"]
     swap_width = config_file["resources"][n_file]["swap_width"]
     density_function = select_density_function(config_file["resources"][n_file]["density_function"])
