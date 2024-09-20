@@ -26,7 +26,7 @@ def _safe_divition(numerator: float, denominator: float) -> float:
     return numerator / denominator
 
 
-def cell_edges_slopes(x, y, node_index):
+def _cell_edges_slopes(x, y, node_index):
     start_slope = _orthogonal_slope(
         _slope_between_two_points(
             y[node_index + 1], y[node_index - 1], x[node_index + 1], x[node_index - 1]
@@ -66,7 +66,7 @@ def cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
 
 def generate_cell_from_coordinates(x, y, node, stripe_width, spatial_resolution):
     r = stripe_width / 2
-    start_orthogonal_slope, end_orthogonal_slope = cell_edges_slopes(x, y, node)
+    start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
     x_rect = cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
     y_rect = cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, y, node)
     x_rect, y_rect = check_directions(x_rect, y_rect)

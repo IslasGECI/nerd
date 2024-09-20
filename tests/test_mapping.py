@@ -1,7 +1,7 @@
 from nerd.mapping import (
     calculate_cell_density_in_border,
     calculate_directions,
-    cell_edges_slopes,
+    _cell_edges_slopes,
     check_directions,
     density_in_tile,
     generate_cell_from_coordinates,
@@ -123,7 +123,7 @@ class TestMapping(TestCase):
 
     def test_slopes_from_coordinates(self):
         expected = (-0.5, -0.5)
-        obtained = cell_edges_slopes(self.x, self.y, self.node)
+        obtained = _cell_edges_slopes(self.x, self.y, self.node)
         assert expected == obtained
 
     def test_generate_tile_from_coordinates(self):
