@@ -8,7 +8,7 @@ from nerd.mapping import (
     generate_tile_direction_arrays,
     _orthogonal_slope,
     reorder_end_tile,
-    safe_divition,
+    _safe_divition,
     sign_of_direction,
     _slope_between_two_points,
     is_inside_tile,
@@ -103,12 +103,12 @@ class TestMapping(TestCase):
 
     def test_safe_divition(self):
         expected = 60 / 2
-        obtained = safe_divition(self.stripe_width, self.b)
+        obtained = _safe_divition(self.stripe_width, self.b)
         assert expected == obtained
 
     def test_safe_divition_by_zero(self):
         expected = np.inf
-        obtained = safe_divition(self.stripe_width, self.c)
+        obtained = _safe_divition(self.stripe_width, self.c)
         assert expected == obtained
 
     def test_slope_between_two_points(self):

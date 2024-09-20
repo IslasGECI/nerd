@@ -1,7 +1,7 @@
 from nerd.mapping.tiling import (  # noqa
     _slope_between_two_points,
     _orthogonal_slope,
-    safe_divition,
+    _safe_divition,
     cell_edges_slopes,
     calculate_cell_y_limits,
     cell_y_coordinates,
