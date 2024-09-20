@@ -37,10 +37,10 @@ def _check_output_directory(output_path: str) -> None:
         os.mkdir(output_path)
 
 
-def _import_multifile_tracmap(config_file, csv_filename):
+def _import_multifile_tracmap(config_file: pd.Series, csv_filename: str) -> pd.DataFrame:
     df_list = create_df_list(config_file)
     df_concat = pd.concat(df_list)
-    output_path = config_file.get("output_path")
+    output_path = str(config_file.get("output_path"))
     _check_output_directory(output_path)
     concatenated_tracmap_path = "{}/{}".format(output_path, csv_filename)
     df_concat.to_csv(concatenated_tracmap_path, index=False)
