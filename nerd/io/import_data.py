@@ -32,7 +32,7 @@ def _import_calibration_data(flux_filename: str) -> Callable:
     return fit_flow_rate(flux_data["aperture_diameter"].to_numpy(), flux_data["flux"].to_numpy())
 
 
-def _check_output_directory(output_path):
+def _check_output_directory(output_path: str) -> None:
     if not os.path.exists(output_path):
         os.mkdir(output_path)
 
