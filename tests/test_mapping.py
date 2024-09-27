@@ -4,7 +4,7 @@ from nerd.mapping import (
     _cell_edges_slopes,
     check_directions,
     _density_in_tile,
-    xx_generate_cell_from_coordinates,
+    _generate_cell_from_coordinates,
     generate_tile_direction_arrays,
     _orthogonal_slope,
     reorder_end_tile,
@@ -127,7 +127,7 @@ class TestMapping(TestCase):
         assert expected == obtained
 
     def test_generate_tile_from_coordinates(self):
-        obtained_x_tile, obtained_y_tile = xx_generate_cell_from_coordinates(
+        obtained_x_tile, obtained_y_tile = _generate_cell_from_coordinates(
             self.x, self.y, self.node, self.stripe_width
         )
         assert self.x_tile_coordinates == obtained_x_tile

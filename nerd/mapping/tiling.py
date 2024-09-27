@@ -73,7 +73,7 @@ def _cell_x_coordinates(
     return [start_x1, start_x2, end_x2, end_x1, start_x1]
 
 
-def xx_generate_cell_from_coordinates(x: list, y: list, node: int, stripe_width: float) -> tuple:
+def _generate_cell_from_coordinates(x: list, y: list, node: int, stripe_width: float) -> tuple:
     r = stripe_width / 2
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
     x_rect = _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
@@ -264,7 +264,7 @@ def calculate_total_density(
                 flow_rate_function,
             )
             density_array = density_function_lambda(array_for_density)
-            x_rect, y_rect = xx_generate_cell_from_coordinates(
+            x_rect, y_rect = _generate_cell_from_coordinates(
                 tracks.x_coordinates, tracks.y_coordinates, i, swap_width
             )
             inside_mask = _is_inside_tile(x_rect, y_rect, np.array([x_grid_ravel, y_grid_ravel]).T)
