@@ -84,7 +84,7 @@ def _generate_cell_from_coordinates(
     return x_rect, y_rect
 
 
-def _calculate_cell_density_in_border(x_rect, y_rect, n_point):
+def _calculate_cell_density_in_border(x_rect: list, y_rect: list, n_point: int) -> tuple:
     startX = np.linspace(x_rect[0], x_rect[1], n_point)
     startY = np.linspace(y_rect[0], y_rect[1], n_point)
     endX = np.linspace(x_rect[3], x_rect[2], n_point)
