@@ -11,7 +11,7 @@ from nerd.mapping import (
     _safe_divition,
     sign_of_direction,
     _slope_between_two_points,
-    is_inside_tile,
+    _is_inside_tile,
     generate_contours,
     create_contour_polygon_list,
     export_contour_list_as_shapefile,
@@ -244,7 +244,7 @@ class TestMapping(TestCase):
 
     def test_is_inside_tile(self):
         points_to_tests = np.array([np.array([1, 0]), np.array([8, 1])]).T
-        obtained_boolean_mask = is_inside_tile(
+        obtained_boolean_mask = _is_inside_tile(
             self.x_tile_coordinates, self.y_tile_coordinates, points_to_tests
         )
         assert obtained_boolean_mask[0]

@@ -105,7 +105,7 @@ def _density_in_tile(x_rect: list, y_rect: list, density_profile: np.floating, n
     )
 
 
-def is_inside_tile(x_rect, y_rect, points):
+def _is_inside_tile(x_rect, y_rect, points):
     polygon_tile = [[x_rect[i], y_rect[i]] for i in range(len(x_rect))]
     poly = path.Path(polygon_tile)
     return poly.contains_points(points)
@@ -269,7 +269,7 @@ def calculate_total_density(
             x_rect, y_rect = _generate_cell_from_coordinates(
                 tracks.x_coordinates, tracks.y_coordinates, i, swap_width, spatial_resolution
             )
-            inside_mask = is_inside_tile(x_rect, y_rect, np.array([x_grid_ravel, y_grid_ravel]).T)
+            inside_mask = _is_inside_tile(x_rect, y_rect, np.array([x_grid_ravel, y_grid_ravel]).T)
             sub_grid_x = x_grid_ravel[inside_mask]
             sub_grid_y = y_grid_ravel[inside_mask]
             cell_density = _density_in_tile(x_rect, y_rect, density_array, n)(
