@@ -248,7 +248,7 @@ class TestMapping(TestCase):
             self.x_tile_coordinates, self.y_tile_coordinates, points_to_tests
         )
         assert obtained_boolean_mask[0]
-        assert ~obtained_boolean_mask[1]
+        assert not obtained_boolean_mask[1]
 
     def test_generate_contours(self):
         expected_density_values = [0.0, 0.4, 0.8]

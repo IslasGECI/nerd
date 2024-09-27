@@ -9,7 +9,7 @@ from tqdm import tqdm
 import fiona
 import matplotlib.pyplot as plt
 import numpy as np
-from typing import Tuple
+from typing import Tuple, List
 
 
 def _slope_between_two_points(y2: float, y1: float, x2: float, x1: float) -> float:
@@ -105,7 +105,7 @@ def _density_in_tile(x_rect: list, y_rect: list, density_profile: np.floating, n
     )
 
 
-def _is_inside_tile(x_rect, y_rect, points):
+def _is_inside_tile(x_rect: list, y_rect: list, points: np.ndarray) -> List[bool]:
     polygon_tile = [[x_rect[i], y_rect[i]] for i in range(len(x_rect))]
     poly = path.Path(polygon_tile)
     return poly.contains_points(points)
