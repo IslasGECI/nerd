@@ -270,8 +270,8 @@ def calculate_total_density(
                 flow_rate_function,
             )
             density_array = density_function_lambda(array_for_density)
-            x_rect, y_rect = _generate_cell_from_coordinates(
-                tracks.x_coordinates, tracks.y_coordinates, i, swap_width, spatial_resolution
+            x_rect, y_rect = xx_generate_cell_from_coordinates(
+                tracks.x_coordinates, tracks.y_coordinates, i, swap_width
             )
             inside_mask = _is_inside_tile(x_rect, y_rect, np.array([x_grid_ravel, y_grid_ravel]).T)
             sub_grid_x = x_grid_ravel[inside_mask]
