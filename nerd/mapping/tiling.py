@@ -80,8 +80,8 @@ def _generate_cell_from_coordinates(
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
     x_rect = _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
     y_rect = _cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, y, node)
-    x_rect, y_rect = check_directions(x_rect, y_rect)
-    return x_rect, y_rect
+    checked_x_rect, checked_y_rect = check_directions(x_rect, y_rect)
+    return checked_x_rect, checked_y_rect
 
 
 def _calculate_cell_density_in_border(x_rect: list, y_rect: list, n_point: int) -> tuple:
