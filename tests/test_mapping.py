@@ -3,7 +3,7 @@ from nerd.mapping import (
     calculate_directions,
     _cell_edges_slopes,
     check_directions,
-    density_in_tile,
+    _density_in_tile,
     _generate_cell_from_coordinates,
     generate_tile_direction_arrays,
     _orthogonal_slope,
@@ -134,7 +134,7 @@ class TestMapping(TestCase):
         assert self.y_tile_coordinates == obtained_y_tile
 
     def test_density_in_tile(self):
-        obtained_lambda_density_function = density_in_tile(
+        obtained_lambda_density_function = _density_in_tile(
             self.x_tile_coordinates,
             self.y_tile_coordinates,
             self.uniform_density,

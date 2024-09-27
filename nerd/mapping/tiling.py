@@ -94,7 +94,7 @@ def _calculate_cell_density_in_border(x_rect: list, y_rect: list, n_point: int) 
     return xx, yy
 
 
-def density_in_tile(x_rect, y_rect, density_profile, n_point):
+def _density_in_tile(x_rect, y_rect, density_profile, n_point):
     xx, yy = _calculate_cell_density_in_border(x_rect, y_rect, n_point)
     mean_xx = np.mean(xx)
     mean_yy = np.mean(yy)
@@ -272,7 +272,9 @@ def calculate_total_density(
             inside_mask = is_inside_tile(x_rect, y_rect, np.array([x_grid_ravel, y_grid_ravel]).T)
             sub_grid_x = x_grid_ravel[inside_mask]
             sub_grid_y = y_grid_ravel[inside_mask]
-            cell_density = density_in_tile(x_rect, y_rect, density_array, n)(sub_grid_x, sub_grid_y)
+            cell_density = _density_in_tile(x_rect, y_rect, density_array, n)(
+                sub_grid_x, sub_grid_y
+            )
             total_density[inside_mask] = total_density[inside_mask] + cell_density
     total_density_grid = np.reshape(total_density, x_grid.shape)
     return x_grid, y_grid, total_density_grid
