@@ -1,5 +1,5 @@
 from nerd.mapping import (
-    calculate_cell_density_in_border,
+    _calculate_cell_density_in_border,
     calculate_directions,
     _cell_edges_slopes,
     check_directions,
@@ -146,7 +146,7 @@ class TestMapping(TestCase):
         np.testing.assert_array_almost_equal(expected_density, obtained_density)
 
     def test_calculate_cell_density_in_border(self):
-        xx, yy = calculate_cell_density_in_border(
+        xx, yy = _calculate_cell_density_in_border(
             self.x_tile_coordinates, self.y_tile_coordinates, self.spatial_resolution
         )
         expexted_xx_array = np.array(

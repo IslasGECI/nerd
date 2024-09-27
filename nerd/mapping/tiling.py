@@ -84,7 +84,7 @@ def _generate_cell_from_coordinates(
     return x_rect, y_rect
 
 
-def calculate_cell_density_in_border(x_rect, y_rect, n_point):
+def _calculate_cell_density_in_border(x_rect, y_rect, n_point):
     startX = np.linspace(x_rect[0], x_rect[1], n_point)
     startY = np.linspace(y_rect[0], y_rect[1], n_point)
     endX = np.linspace(x_rect[3], x_rect[2], n_point)
@@ -95,7 +95,7 @@ def calculate_cell_density_in_border(x_rect, y_rect, n_point):
 
 
 def density_in_tile(x_rect, y_rect, density_profile, n_point):
-    xx, yy = calculate_cell_density_in_border(x_rect, y_rect, n_point)
+    xx, yy = _calculate_cell_density_in_border(x_rect, y_rect, n_point)
     mean_xx = np.mean(xx)
     mean_yy = np.mean(yy)
     return lambda xq, yq: griddata(
