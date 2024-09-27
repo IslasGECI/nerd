@@ -94,7 +94,7 @@ def _calculate_cell_density_in_border(x_rect: list, y_rect: list, n_point: int) 
     return xx, yy
 
 
-def _density_in_tile(x_rect, y_rect, density_profile, n_point):
+def _density_in_tile(x_rect: list, y_rect: list, density_profile: np.floating, n_point: int):
     xx, yy = _calculate_cell_density_in_border(x_rect, y_rect, n_point)
     mean_xx = np.mean(xx)
     mean_yy = np.mean(yy)
