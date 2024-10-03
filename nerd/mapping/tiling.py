@@ -183,7 +183,7 @@ def _export_contour_list_as_shapefile(PolyList: List[Dict], output_path: str) ->
 
 def _generate_grid_density(
     x_coordinates: np.ndarray, y_coordinates: np.ndarray, spatial_resolution: int
-):
+) -> Tuple[np.ndarray, np.ndarray]:
     x = np.arange(min(x_coordinates), max(x_coordinates), spatial_resolution)
     y = np.arange(min(y_coordinates), max(y_coordinates), spatial_resolution)
     x_grid, y_grid = np.meshgrid(x, y)
