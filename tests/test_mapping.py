@@ -5,7 +5,7 @@ from nerd.mapping import (
     check_directions,
     _density_in_tile,
     _generate_cell_from_coordinates,
-    generate_tile_direction_arrays,
+    _generate_tile_direction_arrays,
     _orthogonal_slope,
     reorder_end_tile,
     _safe_divition,
@@ -202,7 +202,7 @@ class TestMapping(TestCase):
         )
 
     def test_generate_tile_direction_arrays(self):
-        obtained_directions_arrays = generate_tile_direction_arrays(
+        obtained_directions_arrays = _generate_tile_direction_arrays(
             self.x_tile_coordinates, self.y_tile_coordinates
         )
         expected_u_array = np.array([-53.665631, 26.832816])

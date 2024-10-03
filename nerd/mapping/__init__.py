@@ -12,7 +12,7 @@ from nerd.mapping.tiling import (  # noqa
     _density_in_tile,
     _is_inside_tile,
     _calculate_directions,
-    generate_tile_direction_arrays,
+    _generate_tile_direction_arrays,
     sign_of_direction,
     reorder_end_tile,
     check_directions,
