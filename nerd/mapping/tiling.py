@@ -190,7 +190,7 @@ def _generate_grid_density(
     return x_grid, y_grid
 
 
-class Tracks:
+class _Tracks:
     def __init__(self, track_data):
         self.track_data = track_data
 
@@ -238,7 +238,7 @@ def calculate_total_density(
         - total_density_grid : np.ndarray
             The calculated total density distribution over the grid.
     """
-    tracks = Tracks(track_data)
+    tracks = _Tracks(track_data)
     x_grid, y_grid = _generate_grid_density(
         tracks.x_coordinates, tracks.y_coordinates, spatial_resolution
     )
