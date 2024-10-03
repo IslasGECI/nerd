@@ -109,7 +109,7 @@ def _is_inside_tile(x_rect: list, y_rect: list, points: np.ndarray) -> List[bool
     return poly.contains_points(points)
 
 
-def _calculate_directions(x_rect, y_rect):
+def _calculate_directions(x_rect: list, y_rect: list) -> float:
     u, v = generate_tile_direction_arrays(x_rect, y_rect)
     theta1 = sign_of_direction(u, v)
     return theta1
