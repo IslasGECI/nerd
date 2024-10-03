@@ -115,7 +115,7 @@ def _calculate_directions(x_rect: list, y_rect: list) -> float:
     return theta1
 
 
-def _generate_tile_direction_arrays(x_rect, y_rect):
+def _generate_tile_direction_arrays(x_rect: list, y_rect: list) -> Tuple:
     u = np.array([x_rect[1] - x_rect[0], y_rect[1] - y_rect[0]])
     v = np.array([x_rect[2] - x_rect[3], y_rect[2] - y_rect[3]])
     return u, v
