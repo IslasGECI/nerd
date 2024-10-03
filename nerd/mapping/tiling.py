@@ -9,7 +9,7 @@ from tqdm import tqdm
 import fiona
 import matplotlib.pyplot as plt
 import numpy as np
-from typing import Tuple, List
+from typing import Tuple, List, Dict
 
 
 def _slope_between_two_points(y2: float, y1: float, x2: float, x1: float) -> float:
@@ -172,7 +172,7 @@ def _create_contour_polygon_list(
     return PolyList
 
 
-def export_contour_list_as_shapefile(PolyList, output_path):
+def _export_contour_list_as_shapefile(PolyList: List[Dict], output_path: str) -> None:
     schema = {"geometry": "Polygon", "properties": {"z": "float"}}
     with fiona.collection(output_path, "w", "ESRI Shapefile", schema) as output:
         for poly_list in PolyList:

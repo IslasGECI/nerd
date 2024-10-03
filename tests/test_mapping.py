@@ -14,7 +14,7 @@ from nerd.mapping import (
     _is_inside_tile,
     _generate_contours,
     _create_contour_polygon_list,
-    export_contour_list_as_shapefile,
+    _export_contour_list_as_shapefile,
     calculate_total_density,
     generate_grid_density,
     density_contours_intervals,
@@ -284,7 +284,7 @@ class TestMapping(TestCase):
         )
         obtained_polygon_list = _create_contour_polygon_list(contour, contour_dict)
         output_path = "tests/test_shapefile.shp"
-        export_contour_list_as_shapefile(obtained_polygon_list, output_path)
+        _export_contour_list_as_shapefile(obtained_polygon_list, output_path)
         expected_hash = "1124067914ab62d8c5cc0d3cc70742b7"
         assess_hash(output_path, expected_hash)
 
