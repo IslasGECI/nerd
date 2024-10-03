@@ -15,7 +15,7 @@ from nerd.mapping.tiling import (  # noqa
     _generate_tile_direction_arrays,
     _sign_of_direction,
     _reorder_end_tile,
-    check_directions,
+    _check_directions,
     generate_contours,
     create_contour_polygon_list,
     export_contour_list_as_shapefile,

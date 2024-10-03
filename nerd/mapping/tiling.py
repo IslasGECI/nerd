@@ -78,7 +78,7 @@ def _generate_cell_from_coordinates(x: list, y: list, node: int, stripe_width: f
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
     x_rect = _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
     y_rect = _cell_y_coordinates(start_orthogonal_slope, end_orthogonal_slope, x_rect, x, y, node)
-    checked_x_rect, checked_y_rect = check_directions(x_rect, y_rect)
+    checked_x_rect, checked_y_rect = _check_directions(x_rect, y_rect)
     return checked_x_rect, checked_y_rect
 
 
@@ -137,7 +137,7 @@ def _reorder_end_tile(x_rect: list, y_rect: list) -> Tuple[list, list]:
     return x_rect, y_rect
 
 
-def check_directions(x_rect, y_rect):
+def _check_directions(x_rect, y_rect):
     startangle = _calculate_directions(x_rect, y_rect)
     if startangle > np.pi / 2:
         x_rect, y_rect = _reorder_end_tile(x_rect, y_rect)

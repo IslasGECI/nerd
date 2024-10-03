@@ -2,7 +2,7 @@ from nerd.mapping import (
     _calculate_cell_density_in_border,
     _calculate_directions,
     _cell_edges_slopes,
-    check_directions,
+    _check_directions,
     _density_in_tile,
     _generate_cell_from_coordinates,
     _generate_tile_direction_arrays,
@@ -218,7 +218,7 @@ class TestMapping(TestCase):
         assert obtained_y_tile_coordinates == self.flipped_y_tile_coordinates
 
     def test_check_directions(self):
-        obtained_x_tile_coordinates, obtained_y_tile_coordinates = check_directions(
+        obtained_x_tile_coordinates, obtained_y_tile_coordinates = _check_directions(
             self.flipped_x_tile_coordinates, self.flipped_y_tile_coordinates
         )
         assert obtained_x_tile_coordinates == self.x_tile_coordinates
@@ -227,7 +227,7 @@ class TestMapping(TestCase):
     def test_check_directions_2(self):
         x_tile_test = [0, 1, 0.32020140, 0, 0]
         y_tile_test = [0, 0, 0.93962620, 0, 0]
-        obtained_x_tile_coordinates, obtained_y_tile_coordinates = check_directions(
+        obtained_x_tile_coordinates, obtained_y_tile_coordinates = _check_directions(
             x_tile_test.copy(), y_tile_test.copy()
         )
         assert obtained_x_tile_coordinates == x_tile_test
@@ -236,7 +236,7 @@ class TestMapping(TestCase):
     def test_check_directions_3(self):
         x_tile_test = [0, 0, 1, 0, 0]
         y_tile_test = [0, 1, 1, 1, 0]
-        obtained_x_tile_coordinates, obtained_y_tile_coordinates = check_directions(
+        obtained_x_tile_coordinates, obtained_y_tile_coordinates = _check_directions(
             x_tile_test.copy(), y_tile_test.copy()
         )
         assert obtained_x_tile_coordinates == x_tile_test
