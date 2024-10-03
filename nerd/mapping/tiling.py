@@ -151,7 +151,9 @@ def _generate_contours(
     return contour, dict(zip(contour.collections, contour.levels))
 
 
-def _create_contour_polygon_list(contour: matplotlib.figure, contour_dict: dict) -> list:
+def _create_contour_polygon_list(
+    contour: matplotlib.contour.QuadContourSet, contour_dict: dict
+) -> list:
     # Original code in https://github.com/chrishavlin/learning_shapefiles/blob/master/src/contourf_to_shp.py
     PolyList = []
     for col in contour.collections:
