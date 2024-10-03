@@ -137,7 +137,7 @@ def _reorder_end_tile(x_rect: list, y_rect: list) -> Tuple[list, list]:
     return x_rect, y_rect
 
 
-def _check_directions(x_rect, y_rect):
+def _check_directions(x_rect: list, y_rect: list) -> Tuple[list, list]:
     startangle = _calculate_directions(x_rect, y_rect)
     if startangle > np.pi / 2:
         x_rect, y_rect = _reorder_end_tile(x_rect, y_rect)
