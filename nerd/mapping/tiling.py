@@ -26,7 +26,7 @@ def _safe_divition(numerator: float, denominator: float) -> float:
     return numerator / denominator
 
 
-def _cell_edges_slopes(x: list, y: list, node_index: int) -> tuple:
+def _cell_edges_slopes(x: np.ndarray, y: list, node_index: int) -> tuple:
     start_slope = _orthogonal_slope(
         _slope_between_two_points(
             y[node_index + 1], y[node_index - 1], x[node_index + 1], x[node_index - 1]
@@ -48,7 +48,7 @@ def _cell_y_coordinates(
     start_orthogonal_slope: float,
     end_orthogonal_slope: float,
     x_rect: list,
-    x: list,
+    x: np.ndarray,
     y: list,
     node: int,
 ) -> list:
@@ -64,7 +64,7 @@ def _calculate_cell_x_limits(r: float, orthogonal_slope: float, x_coord: float) 
 
 
 def _cell_x_coordinates(
-    r: float, start_orthogonal_slope: float, end_orthogonal_slope: float, x: list, node: int
+    r: float, start_orthogonal_slope: float, end_orthogonal_slope: float, x: np.ndarray, node: int
 ) -> list:
     start_x1 = _calculate_cell_x_limits(r, start_orthogonal_slope, x[node])
     start_x2 = _calculate_cell_x_limits(-r, start_orthogonal_slope, x[node])
@@ -73,7 +73,9 @@ def _cell_x_coordinates(
     return [start_x1, start_x2, end_x2, end_x1, start_x1]
 
 
-def _generate_cell_from_coordinates(x: list, y: list, node: int, stripe_width: float) -> tuple:
+def _generate_cell_from_coordinates(
+    x: np.ndarray, y: list, node: int, stripe_width: float
+) -> tuple:
     r = stripe_width / 2
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
     x_rect = _cell_x_coordinates(r, start_orthogonal_slope, end_orthogonal_slope, x, node)
@@ -195,7 +197,7 @@ class _Tracks:
         self.track_data = track_data
 
     @property
-    def _x_coordinates(self):
+    def _x_coordinates(self) -> np.ndarray:
         return self.track_data["easting"].to_numpy()
 
     @property
