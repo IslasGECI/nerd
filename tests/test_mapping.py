@@ -1,6 +1,6 @@
 from nerd.mapping import (
     _calculate_cell_density_in_border,
-    calculate_directions,
+    _calculate_directions,
     _cell_edges_slopes,
     check_directions,
     _density_in_tile,
@@ -181,8 +181,8 @@ class TestMapping(TestCase):
         np.testing.assert_array_almost_equal(yy, expected_yy_array)
 
     def test_calculate_directions(self):
-        obtained_angle = calculate_directions([0, 0, 1, 1, 0], [0, 1, 0, 1, 0])
-        second_obtained_angle = calculate_directions(
+        obtained_angle = _calculate_directions([0, 0, 1, 1, 0], [0, 1, 0, 1, 0])
+        second_obtained_angle = _calculate_directions(
             self.x_tile_coordinates, self.y_tile_coordinates
         )
         assert obtained_angle == np.pi

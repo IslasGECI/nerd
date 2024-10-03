@@ -109,7 +109,7 @@ def _is_inside_tile(x_rect: list, y_rect: list, points: np.ndarray) -> List[bool
     return poly.contains_points(points)
 
 
-def calculate_directions(x_rect, y_rect):
+def _calculate_directions(x_rect, y_rect):
     u, v = generate_tile_direction_arrays(x_rect, y_rect)
     theta1 = sign_of_direction(u, v)
     return theta1
@@ -138,7 +138,7 @@ def reorder_end_tile(x_rect, y_rect):
 
 
 def check_directions(x_rect, y_rect):
-    startangle = calculate_directions(x_rect, y_rect)
+    startangle = _calculate_directions(x_rect, y_rect)
     if startangle > np.pi / 2:
         x_rect, y_rect = reorder_end_tile(x_rect, y_rect)
     return x_rect, y_rect
