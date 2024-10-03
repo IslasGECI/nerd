@@ -195,7 +195,7 @@ class _Tracks:
         self.track_data = track_data
 
     @property
-    def x_coordinates(self):
+    def _x_coordinates(self):
         return self.track_data["easting"].to_numpy()
 
     @property
@@ -240,7 +240,7 @@ def calculate_total_density(
     """
     tracks = _Tracks(track_data)
     x_grid, y_grid = _generate_grid_density(
-        tracks.x_coordinates, tracks.y_coordinates, spatial_resolution
+        tracks._x_coordinates, tracks.y_coordinates, spatial_resolution
     )
     df_list = _create_df_list(config_file)
     datafiles_lenghts = np.cumsum([len(df) for df in df_list])
@@ -271,7 +271,7 @@ def calculate_total_density(
             )
             density_array = density_function_lambda(array_for_density)
             x_rect, y_rect = _generate_cell_from_coordinates(
-                tracks.x_coordinates, tracks.y_coordinates, i, swap_width
+                tracks._x_coordinates, tracks.y_coordinates, i, swap_width
             )
             inside_mask = _is_inside_tile(x_rect, y_rect, np.array([x_grid_ravel, y_grid_ravel]).T)
             sub_grid_x = x_grid_ravel[inside_mask]
