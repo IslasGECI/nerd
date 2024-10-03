@@ -1,4 +1,4 @@
-from matplotlib import path
+import matplotlib
 from nerd import solver
 from nerd.io import _select_parameters_by_index, _create_df_list
 from nerd.density_functions import uniform
@@ -105,7 +105,7 @@ def _density_in_tile(x_rect: list, y_rect: list, density_profile: np.floating, n
 
 def _is_inside_tile(x_rect: list, y_rect: list, points: np.ndarray) -> List[bool]:
     polygon_tile = [[x_rect[i], y_rect[i]] for i in range(len(x_rect))]
-    poly = path.Path(polygon_tile)
+    poly = matplotlib.path.Path(polygon_tile)
     return poly.contains_points(points)
 
 
@@ -144,7 +144,9 @@ def _check_directions(x_rect: list, y_rect: list) -> Tuple[list, list]:
     return x_rect, y_rect
 
 
-def _generate_contours(x_grid, y_grid, total_density, *args):
+def _generate_contours(
+    x_grid: np.ndarray, y_grid: np.ndarray, total_density: np.ndarray, *args
+) -> Tuple[matplotlib.contour.QuadContourSet, dict]:
     contour = plt.contourf(x_grid, y_grid, total_density, *args)
     return contour, dict(zip(contour.collections, contour.levels))
 
