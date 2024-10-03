@@ -13,7 +13,7 @@ from nerd.mapping import (
     _slope_between_two_points,
     _is_inside_tile,
     _generate_contours,
-    create_contour_polygon_list,
+    _create_contour_polygon_list,
     export_contour_list_as_shapefile,
     calculate_total_density,
     generate_grid_density,
@@ -264,7 +264,7 @@ class TestMapping(TestCase):
         contour, contour_dict = _generate_contours(
             self.x_grid, self.y_grid, self.total_density_reshaped, self.n_contours
         )
-        obtained_polygon_list = create_contour_polygon_list(contour, contour_dict)
+        obtained_polygon_list = _create_contour_polygon_list(contour, contour_dict)
         expected_poligon_list_element_keys = ["poly", "props"]
         obtained_poligon_list_element_keys = list(obtained_polygon_list[0].keys())
         expected_props_dict_keys = ["z"]
@@ -282,7 +282,7 @@ class TestMapping(TestCase):
         contour, contour_dict = _generate_contours(
             self.x_grid, self.y_grid, self.total_density_reshaped, self.n_contours
         )
-        obtained_polygon_list = create_contour_polygon_list(contour, contour_dict)
+        obtained_polygon_list = _create_contour_polygon_list(contour, contour_dict)
         output_path = "tests/test_shapefile.shp"
         export_contour_list_as_shapefile(obtained_polygon_list, output_path)
         expected_hash = "1124067914ab62d8c5cc0d3cc70742b7"

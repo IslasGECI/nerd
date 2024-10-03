@@ -17,7 +17,7 @@ from nerd.mapping.tiling import (  # noqa
     _reorder_end_tile,
     _check_directions,
     _generate_contours,
-    create_contour_polygon_list,
+    _create_contour_polygon_list,
     export_contour_list_as_shapefile,
     generate_grid_density,
     Tracks,
