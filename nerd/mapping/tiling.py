@@ -26,7 +26,7 @@ def _safe_divition(numerator: float, denominator: float) -> float:
     return numerator / denominator
 
 
-def _cell_edges_slopes(x: np.ndarray, y: list, node_index: int) -> tuple:
+def _cell_edges_slopes(x: np.ndarray, y: np.ndarray, node_index: int) -> tuple:
     start_slope = _orthogonal_slope(
         _slope_between_two_points(
             y[node_index + 1], y[node_index - 1], x[node_index + 1], x[node_index - 1]
@@ -49,7 +49,7 @@ def _cell_y_coordinates(
     end_orthogonal_slope: float,
     x_rect: list,
     x: np.ndarray,
-    y: list,
+    y: np.ndarray,
     node: int,
 ) -> list:
     start_y1 = _calculate_cell_y_limits(start_orthogonal_slope, x_rect[0], x[node], y[node])
@@ -74,7 +74,7 @@ def _cell_x_coordinates(
 
 
 def _generate_cell_from_coordinates(
-    x: np.ndarray, y: list, node: int, stripe_width: float
+    x: np.ndarray, y: np.ndarray, node: int, stripe_width: float
 ) -> tuple:
     r = stripe_width / 2
     start_orthogonal_slope, end_orthogonal_slope = _cell_edges_slopes(x, y, node)
@@ -201,7 +201,7 @@ class _Tracks:
         return self.track_data["easting"].to_numpy()
 
     @property
-    def _y_coordinates(self):
+    def _y_coordinates(self) -> np.ndarray:
         return self.track_data["northing"].to_numpy()
 
     @property
