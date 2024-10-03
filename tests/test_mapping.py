@@ -12,7 +12,7 @@ from nerd.mapping import (
     _sign_of_direction,
     _slope_between_two_points,
     _is_inside_tile,
-    generate_contours,
+    _generate_contours,
     create_contour_polygon_list,
     export_contour_list_as_shapefile,
     calculate_total_density,
@@ -252,7 +252,7 @@ class TestMapping(TestCase):
 
     def test_generate_contours(self):
         expected_density_values = [0.0, 0.4, 0.8]
-        contour, contour_dict = generate_contours(
+        contour, contour_dict = _generate_contours(
             self.x_grid, self.y_grid, self.total_density_reshaped, self.n_contours
         )
         for key in contour_dict.keys():
@@ -261,7 +261,7 @@ class TestMapping(TestCase):
         assert isinstance(contour, mpl.contour.QuadContourSet)
 
     def test_create_contour_polygon_list(self):
-        contour, contour_dict = generate_contours(
+        contour, contour_dict = _generate_contours(
             self.x_grid, self.y_grid, self.total_density_reshaped, self.n_contours
         )
         obtained_polygon_list = create_contour_polygon_list(contour, contour_dict)
@@ -279,7 +279,7 @@ class TestMapping(TestCase):
         assert obtained_props_dict_keys == expected_props_dict_keys
 
     def test_export_contour_list_as_shapefile(self):
-        contour, contour_dict = generate_contours(
+        contour, contour_dict = _generate_contours(
             self.x_grid, self.y_grid, self.total_density_reshaped, self.n_contours
         )
         obtained_polygon_list = create_contour_polygon_list(contour, contour_dict)

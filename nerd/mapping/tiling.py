@@ -144,7 +144,7 @@ def _check_directions(x_rect: list, y_rect: list) -> Tuple[list, list]:
     return x_rect, y_rect
 
 
-def generate_contours(x_grid, y_grid, total_density, *args):
+def _generate_contours(x_grid, y_grid, total_density, *args):
     contour = plt.contourf(x_grid, y_grid, total_density, *args)
     return contour, dict(zip(contour.collections, contour.levels))
 
