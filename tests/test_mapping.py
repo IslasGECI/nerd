@@ -9,7 +9,7 @@ from nerd.mapping import (
     _orthogonal_slope,
     reorder_end_tile,
     _safe_divition,
-    sign_of_direction,
+    _sign_of_direction,
     _slope_between_two_points,
     _is_inside_tile,
     generate_contours,
@@ -189,9 +189,9 @@ class TestMapping(TestCase):
         assert second_obtained_angle == 0
 
     def test_sign_of_direction(self):
-        obtained_angle = sign_of_direction([1, 0], [1, 0])
-        second_obtained_angle = sign_of_direction([1, 0], [0, 1])
-        third_obtained_angle = sign_of_direction([5, 3], [4, 2])
+        obtained_angle = _sign_of_direction([1, 0], [1, 0])
+        second_obtained_angle = _sign_of_direction([1, 0], [0, 1])
+        third_obtained_angle = _sign_of_direction([5, 3], [4, 2])
         assert obtained_angle == 0
         assert second_obtained_angle == np.pi / 2
         self.assertAlmostEqual(
