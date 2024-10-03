@@ -127,7 +127,7 @@ def _sign_of_direction(u: np.ndarray, v: np.ndarray) -> float:
     return np.arccos(np.clip(inner / norms, -1.0, 1.0))
 
 
-def reorder_end_tile(x_rect, y_rect):
+def _reorder_end_tile(x_rect, y_rect):
     tempx1 = x_rect[3]
     x_rect[3] = x_rect[2]
     x_rect[2] = tempx1
@@ -140,7 +140,7 @@ def reorder_end_tile(x_rect, y_rect):
 def check_directions(x_rect, y_rect):
     startangle = _calculate_directions(x_rect, y_rect)
     if startangle > np.pi / 2:
-        x_rect, y_rect = reorder_end_tile(x_rect, y_rect)
+        x_rect, y_rect = _reorder_end_tile(x_rect, y_rect)
     return x_rect, y_rect
 
 

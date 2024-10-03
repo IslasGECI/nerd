@@ -7,7 +7,7 @@ from nerd.mapping import (
     _generate_cell_from_coordinates,
     _generate_tile_direction_arrays,
     _orthogonal_slope,
-    reorder_end_tile,
+    _reorder_end_tile,
     _safe_divition,
     _sign_of_direction,
     _slope_between_two_points,
@@ -211,7 +211,7 @@ class TestMapping(TestCase):
         np.testing.assert_array_almost_equal(obtained_directions_arrays[1], expected_v_array)
 
     def test_reorder_end_tile(self):
-        obtained_x_tile_coordinates, obtained_y_tile_coordinates = reorder_end_tile(
+        obtained_x_tile_coordinates, obtained_y_tile_coordinates = _reorder_end_tile(
             self.x_tile_coordinates, self.y_tile_coordinates
         )
         assert obtained_x_tile_coordinates == self.flipped_x_tile_coordinates
