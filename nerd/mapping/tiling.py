@@ -181,7 +181,7 @@ def _export_contour_list_as_shapefile(PolyList: List[Dict], output_path: str) ->
             )
 
 
-def generate_grid_density(x_coordinates, y_coordinates, spatial_resolution):
+def _generate_grid_density(x_coordinates, y_coordinates, spatial_resolution):
     x = np.arange(min(x_coordinates), max(x_coordinates), spatial_resolution)
     y = np.arange(min(y_coordinates), max(y_coordinates), spatial_resolution)
     x_grid, y_grid = np.meshgrid(x, y)
@@ -237,7 +237,7 @@ def calculate_total_density(
             The calculated total density distribution over the grid.
     """
     tracks = Tracks(track_data)
-    x_grid, y_grid = generate_grid_density(
+    x_grid, y_grid = _generate_grid_density(
         tracks.x_coordinates, tracks.y_coordinates, spatial_resolution
     )
     df_list = _create_df_list(config_file)

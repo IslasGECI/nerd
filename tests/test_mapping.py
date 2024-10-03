@@ -16,7 +16,7 @@ from nerd.mapping import (
     _create_contour_polygon_list,
     _export_contour_list_as_shapefile,
     calculate_total_density,
-    generate_grid_density,
+    _generate_grid_density,
     density_contours_intervals,
     generate_uniform_density_array,
 )
@@ -348,7 +348,7 @@ class TestMapping(TestCase):
         np.testing.assert_array_almost_equal(total_density_grid_obtained, total_density_expected)
 
     def test_generate_grid_density(self):
-        x_grid_obtained, y_grid_obtained = generate_grid_density(
+        x_grid_obtained, y_grid_obtained = _generate_grid_density(
             self.x_coordinates[:10],
             self.y_coordinates[:10],
             self.spatial_resolution,
