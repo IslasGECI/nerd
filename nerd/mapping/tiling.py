@@ -121,7 +121,7 @@ def _generate_tile_direction_arrays(x_rect: list, y_rect: list) -> Tuple:
     return u, v
 
 
-def _sign_of_direction(u, v):
+def _sign_of_direction(u: np.ndarray, v: np.ndarray) -> float:
     inner = np.inner(u, v)
     norms = np.linalg.norm(u) * np.linalg.norm(v)
     return np.arccos(np.clip(inner / norms, -1.0, 1.0))
