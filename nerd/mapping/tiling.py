@@ -127,7 +127,7 @@ def _sign_of_direction(u: np.ndarray, v: np.ndarray) -> float:
     return np.arccos(np.clip(inner / norms, -1.0, 1.0))
 
 
-def _reorder_end_tile(x_rect, y_rect):
+def _reorder_end_tile(x_rect: list, y_rect: list) -> Tuple[list, list]:
     tempx1 = x_rect[3]
     x_rect[3] = x_rect[2]
     x_rect[2] = tempx1
