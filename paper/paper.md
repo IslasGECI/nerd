@@ -19,6 +19,8 @@ authors:
     affiliation: 1
 affiliations:
   - name: Grupo de Ecología y Conservación de Islas
+    city: Ensenada
+    country: Mexico
     index: 1
 bibliography: references.bib
 
@@ -113,12 +115,12 @@ There is another way to setup the model parameters using a json file.
 
 Each island requires a specific bait density to eradicate invasive rodents successfully, which requires studying the ecosystem and biology of the target species.
 
-NERD is extremely useful when planning an eradication campaign because it can ensure efficient bait coverage while maximizing resources, time, and labor requirements.
+NERD is useful when planning an eradication campaign because it can ensure efficient bait coverage while maximizing resources, time, and labor requirements.
 For example, we can use NERD to determine the bait bucket diameter necessary to achieve the desired bait density on the ground.
 While planning helicopter flight paths, bait density is assumed to be constant within each swath but variable between swaths.
 
-NERD is also incredibly useful during an eradication campaign. Notably, conservationists can use NERD to generate bait density maps in nearly real-time. 
-Notably, we can evaluate bait density on the ground, even when the helicopter flies at variable speeds.
+NERD is also useful during an eradication campaign. Notably, conservationists can use NERD to generate bait density maps in nearly real-time. 
+Furthermore, we can evaluate bait density on the ground, even when the helicopter flies at variable speeds.
 The NERD maps can identify bait gaps during eradication campaigns in the field, ensuring an efficient use of resources.
 
 
