@@ -217,7 +217,7 @@ class _Tracks:
         return len(self.track_data)
 
 
-def calculate_total_density(
+def _calculate_total_density(
     track_data,
     config_file,
     spatial_resolution,

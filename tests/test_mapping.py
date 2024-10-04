@@ -15,7 +15,7 @@ from nerd.mapping import (
     _generate_contours,
     _create_contour_polygon_list,
     _export_contour_list_as_shapefile,
-    calculate_total_density,
+    _calculate_total_density,
     _generate_grid_density,
     density_contours_intervals,
     generate_uniform_density_array,
@@ -290,7 +290,7 @@ class TestMapping(TestCase):
 
     def test_calculate_total_density(self):
         spatial_resolution = 2
-        x_grid_obtained, y_grid_obtained, total_density_grid_obtained = calculate_total_density(
+        x_grid_obtained, y_grid_obtained, total_density_grid_obtained = _calculate_total_density(
             self.trackmap_data,
             self.config_json,
             spatial_resolution,
@@ -330,7 +330,7 @@ class TestMapping(TestCase):
 
     def test_calculate_total_density_2(self):
         spatial_resolution = 2
-        x_grid_obtained, y_grid_obtained, total_density_grid_obtained = calculate_total_density(
+        x_grid_obtained, y_grid_obtained, total_density_grid_obtained = _calculate_total_density(
             self.trackmap_data,
             self.config_json,
             spatial_resolution,

@@ -4,7 +4,7 @@ from nerd.io.import_data import (
     _check_output_directory,
 )
 from nerd.mapping.tiling import (
-    calculate_total_density,
+    _calculate_total_density,
     density_contours_intervals,
     _generate_contours,
 )
@@ -59,7 +59,7 @@ class Nerd:
         a spatial grid. The process involves selecting parameters for each segment of the tracks, solving the density
         function, and summing up the density values within the corresponding grid cells.
         """
-        self._x_grid, self._y_grid, self._total_density = calculate_total_density(
+        self._x_grid, self._y_grid, self._total_density = _calculate_total_density(
             self._tracmap_data,
             self.config_file,
             self._spatial_resolution,
