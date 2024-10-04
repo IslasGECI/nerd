@@ -286,7 +286,9 @@ def _calculate_total_density(
     return x_grid, y_grid, total_density_grid
 
 
-def _generate_uniform_density_array(density_value, stripe_width, spatial_resolution):
+def _generate_uniform_density_array(
+    density_value: int, stripe_width: int, spatial_resolution: int
+) -> Tuple[np.floating, int]:
     r = int(stripe_width / 2)
     n = int(np.floor(stripe_width / spatial_resolution))
     rr = np.linspace(-r, r, n)
