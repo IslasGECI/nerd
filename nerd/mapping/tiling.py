@@ -213,7 +213,7 @@ class _Tracks:
         return self.track_data["Speed"].to_numpy()
 
     @property
-    def n_data(self):
+    def _n_data(self):
         return len(self.track_data)
 
 
@@ -255,7 +255,7 @@ def calculate_total_density(
     total_density = np.zeros_like(x_grid_ravel)
     n = int(np.floor(swap_width / spatial_resolution))
     array_for_density = np.linspace(-swap_width / 2, swap_width / 2, n)
-    for i in tqdm(range(tracks.n_data - 2)):
+    for i in tqdm(range(tracks._n_data - 2)):
         if tracks._bucket_logger[i] == 0:
             continue
         else:
