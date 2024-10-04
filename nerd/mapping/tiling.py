@@ -287,7 +287,7 @@ def _calculate_total_density(
 
 
 def _generate_uniform_density_array(
-    density_value: int, stripe_width: int, spatial_resolution: int
+    density_value: float, stripe_width: int, spatial_resolution: int
 ) -> Tuple[np.floating, int]:
     r = int(stripe_width / 2)
     n = int(np.floor(stripe_width / spatial_resolution))
