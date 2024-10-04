@@ -51,7 +51,7 @@ class TestMapping(TestCase):
         self.n_contours = 2
         self._x_coordinates = np.linspace(0, 10, 10)
         self._y_coordinates = np.linspace(0, 10, 10)
-        self.helicopter_speed = [20, 21, 20, 18, 17, 15, 15, 15, 15, 15, 10, 5]
+        self._helicopter_speed = [20, 21, 20, 18, 17, 15, 15, 15, 15, 15, 10, 5]
         self._bucket_logger = np.array([1, 1, 1, 1, 0, 0, 0, 1, 1, 1])
         self.total_density_reshaped = np.eye(10, 10)
         self.aperture_diameter = 90
@@ -94,7 +94,7 @@ class TestMapping(TestCase):
                 "easting": self._x_coordinates,
                 "northing": self._y_coordinates,
                 "Logging_on": self._bucket_logger,
-                "Speed": self.helicopter_speed[:10],
+                "Speed": self._helicopter_speed[:10],
             }
         )
         self.expected_config_file = "tests/data/expected_nerd_config.json"

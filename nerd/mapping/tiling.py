@@ -209,7 +209,7 @@ class _Tracks:
         return self.track_data["Logging_on"].to_numpy()
 
     @property
-    def helicopter_speed(self):
+    def _helicopter_speed(self):
         return self.track_data["Speed"].to_numpy()
 
     @property
@@ -266,7 +266,7 @@ def calculate_total_density(
             )
             density_function_lambda = solver(
                 aperture_diameter,
-                tracks.helicopter_speed[i],
+                tracks._helicopter_speed[i],
                 swap_width,
                 density_function,
                 flow_rate_function,
