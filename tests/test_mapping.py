@@ -50,7 +50,7 @@ class TestMapping(TestCase):
         self.uniform_density = uniform(self.density_domain, self.stripe_width, 10)
         self.n_contours = 2
         self._x_coordinates = np.linspace(0, 10, 10)
-        self.y_coordinates = np.linspace(0, 10, 10)
+        self._y_coordinates = np.linspace(0, 10, 10)
         self.helicopter_speed = [20, 21, 20, 18, 17, 15, 15, 15, 15, 15, 10, 5]
         self.bucket_logger = np.array([1, 1, 1, 1, 0, 0, 0, 1, 1, 1])
         self.total_density_reshaped = np.eye(10, 10)
@@ -58,7 +58,7 @@ class TestMapping(TestCase):
         self.density_function = normal
         self.flow_rate_function = lambda x: x / 50
         self.total_density_random = random_state.rand(5, 5) * 50
-        self.x_grid, self.y_grid = np.meshgrid(self._x_coordinates, self.y_coordinates)
+        self.x_grid, self.y_grid = np.meshgrid(self._x_coordinates, self._y_coordinates)
         self.x_tile_coordinates = [
             29.832815729997474,
             -23.832815729997474,
@@ -92,7 +92,7 @@ class TestMapping(TestCase):
         self.trackmap_data = pd.DataFrame(
             {
                 "easting": self._x_coordinates,
-                "northing": self.y_coordinates,
+                "northing": self._y_coordinates,
                 "Logging_on": self.bucket_logger,
                 "Speed": self.helicopter_speed[:10],
             }
@@ -350,7 +350,7 @@ class TestMapping(TestCase):
     def test_generate_grid_density(self):
         x_grid_obtained, y_grid_obtained = _generate_grid_density(
             self._x_coordinates[:10],
-            self.y_coordinates[:10],
+            self._y_coordinates[:10],
             self.spatial_resolution,
         )
         x_grid_expected = np.array([[0.0, 5.0], [0.0, 5.0]])
