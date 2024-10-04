@@ -18,7 +18,7 @@ from nerd.mapping import (
     _calculate_total_density,
     _generate_grid_density,
     density_contours_intervals,
-    generate_uniform_density_array,
+    _generate_uniform_density_array,
 )
 from nerd.density_functions import uniform, normal
 from unittest import TestCase
@@ -369,7 +369,7 @@ class TestMapping(TestCase):
         np.testing.assert_array_almost_equal(contours_array_obtained, contours_array_expected)
 
     def test_generate_uniform_density_array(self):
-        uniform_density_obtained, n_obtained = generate_uniform_density_array(
+        uniform_density_obtained, n_obtained = _generate_uniform_density_array(
             self.uniform_density_value, self.stripe_width, self.spatial_resolution
         )
         uniform_density_expected = np.array(

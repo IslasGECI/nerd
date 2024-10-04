@@ -22,6 +22,6 @@ from nerd.mapping.tiling import (  # noqa
     _generate_grid_density,
     _Tracks,
     _calculate_total_density,
-    generate_uniform_density_array,
+    _generate_uniform_density_array,
     density_contours_intervals,
 )
