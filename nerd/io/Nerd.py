@@ -5,7 +5,7 @@ from nerd.io.import_data import (
 )
 from nerd.mapping.tiling import (
     _calculate_total_density,
-    density_contours_intervals,
+    _density_contours_intervals,
     _generate_contours,
 )
 import geojsoncontour
@@ -88,7 +88,7 @@ class Nerd:
         ------
         - The method also stores the calculated contour levels as an attribute (`calculated_levels`) of the class.
         """
-        self.calculated_levels = density_contours_intervals(target_density, self._total_density)
+        self.calculated_levels = _density_contours_intervals(target_density, self._total_density)
         contours, _ = _generate_contours(
             self._x_grid, self._y_grid, self._total_density, self.calculated_levels
         )

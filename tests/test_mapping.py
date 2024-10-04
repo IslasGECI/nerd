@@ -17,7 +17,7 @@ from nerd.mapping import (
     _export_contour_list_as_shapefile,
     _calculate_total_density,
     _generate_grid_density,
-    density_contours_intervals,
+    _density_contours_intervals,
     _generate_uniform_density_array,
 )
 from nerd.density_functions import uniform, normal
@@ -359,12 +359,12 @@ class TestMapping(TestCase):
         np.testing.assert_array_equal(y_grid_obtained, y_grid_expected)
 
     def test_density_contours_intervals_1(self):
-        contours_array_obtained = density_contours_intervals(1, self.total_density_reshaped)
+        contours_array_obtained = _density_contours_intervals(1, self.total_density_reshaped)
         contours_array_expected = np.array([0.5, 0.95, 1.0, 1.05])
         np.testing.assert_array_equal(contours_array_obtained, contours_array_expected)
 
     def test_density_contours_intervals_2(self):
-        contours_array_obtained = density_contours_intervals(20, self.total_density_random)
+        contours_array_obtained = _density_contours_intervals(20, self.total_density_random)
         contours_array_expected = np.array([0.388332, 10.0, 19.0, 21.0, 40.0, 47.005374])
         np.testing.assert_array_almost_equal(contours_array_obtained, contours_array_expected)
 
