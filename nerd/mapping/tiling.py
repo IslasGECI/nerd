@@ -213,7 +213,7 @@ class _Tracks:
         return self.track_data["Speed"].to_numpy()
 
     @property
-    def _n_data(self):
+    def _n_data(self) -> int:
         return len(self.track_data)
 
 
