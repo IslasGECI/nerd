@@ -209,7 +209,7 @@ class _Tracks:
         return self.track_data["Logging_on"].to_numpy()
 
     @property
-    def _helicopter_speed(self):
+    def _helicopter_speed(self) -> np.ndarray:
         return self.track_data["Speed"].to_numpy()
 
     @property
