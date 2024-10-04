@@ -205,7 +205,7 @@ class _Tracks:
         return self.track_data["northing"].to_numpy()
 
     @property
-    def _bucket_logger(self):
+    def _bucket_logger(self) -> np.ndarray:
         return self.track_data["Logging_on"].to_numpy()
 
     @property
