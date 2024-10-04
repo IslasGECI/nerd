@@ -205,7 +205,7 @@ class _Tracks:
         return self.track_data["northing"].to_numpy()
 
     @property
-    def bucket_logger(self):
+    def _bucket_logger(self):
         return self.track_data["Logging_on"].to_numpy()
 
     @property
@@ -256,7 +256,7 @@ def calculate_total_density(
     n = int(np.floor(swap_width / spatial_resolution))
     array_for_density = np.linspace(-swap_width / 2, swap_width / 2, n)
     for i in tqdm(range(tracks.n_data - 2)):
-        if tracks.bucket_logger[i] == 0:
+        if tracks._bucket_logger[i] == 0:
             continue
         else:
             if i >= datafiles_lenghts[n_file]:
