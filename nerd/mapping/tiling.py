@@ -296,7 +296,7 @@ def _generate_uniform_density_array(
     return normal_density_array, n
 
 
-def _density_contours_intervals(density_value, total_density):
+def _density_contours_intervals(density_value: float, total_density: np.ndarray) -> np.ndarray:
     mask_zeros = total_density != 0
     total_density_masked = total_density[mask_zeros]
     return np.unique(
