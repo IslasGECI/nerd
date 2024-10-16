@@ -18,9 +18,7 @@ authors:
     orcid: 0000-0002-3467-0008
     affiliation: 1
 affiliations:
-  - name: Grupo de Ecología y Conservación de Islas
-    city: Ensenada
-    country: Mexico
+  - name: Grupo de Ecología y Conservación de Islas, Ensenada, Mexico
     index: 1
 bibliography: references.bib
 
