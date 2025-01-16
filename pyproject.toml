@@ -15,7 +15,7 @@ dependencies = [
         "descartes",
         "fiona",
         "geojsoncontour",
-        "matplotlib",
+        "matplotlib==3.9.*",
         "numpy",
         "pandas",
         "scipy",
