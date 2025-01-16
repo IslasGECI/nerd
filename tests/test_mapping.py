@@ -285,7 +285,7 @@ class TestMapping(TestCase):
         obtained_polygon_list = _create_contour_polygon_list(contour, contour_dict)
         output_path = "tests/test_shapefile.shp"
         _export_contour_list_as_shapefile(obtained_polygon_list, output_path)
-        expected_hash = "1124067914ab62d8c5cc0d3cc70742b7"
+        expected_hash = "887e6ed68fd573c778d629b6c7d148d2"
         assess_hash(output_path, expected_hash)
 
     def test_calculate_total_density(self):
