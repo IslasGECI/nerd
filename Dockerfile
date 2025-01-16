@@ -9,7 +9,7 @@ RUN pip install \
     geojsoncontour \
     ipykernel \
     markdown-code-runner \
-    mutmut \
+    mutmut==2.4.* \
     mypy \
     pandas-stubs \
     pylint \
