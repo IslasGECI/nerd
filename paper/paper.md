@@ -63,7 +63,7 @@ NERD requires prior calibration experiments to determine the mass flow of rodent
 At its core, NERD is a probability density function that describes bait density on the ground as a function of the bucket aperture diameter and drone or helicopter speed.
 
 NERD was originally developed and validated for helicopter-based applications.
-However, its underlying principles governing rodenticide dispersal patterns are general and can be readily extended to drone-based operations.
+However, its underlying principles governing rodenticide dispersal patterns are general and are applicable to drone-based operations.
 With the increasing relevance and accessibility of drone technology in conservation efforts, applying NERD in these contexts has the potential to enhance operational efficiency.
 
 # Formulation
