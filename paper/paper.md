@@ -75,6 +75,10 @@ With the increasing relevance and accessibility of drone technology in conservat
 \end{equation}
 where $\dot{m}$ is the bait flow (kg/s), $s$ is the speed of the helicopter (m/s), and $w$ is the swath width (m).
 
+This approach provides a practical and efficient method for estimating bait distribution.
+However, it is important to note that the current model does not consider the effects of wind on bait dispersion.
+Future work could incorporate wind dynamics to improve the model's predictive capabilities under diverse environmental conditions.
+
 # Calibration
 
 Assuming the density is independent of $x$ (i.e., $\sigma$ does not change along the swath width) and expressing the mass flow rate of the bait as a function of the aperture diameter, $\dot{m}(d)$, we obtain a two-parameter model:
