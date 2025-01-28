@@ -66,6 +66,10 @@ NERD was originally developed and validated for helicopter-based applications.
 However, its underlying principles governing rodenticide dispersal patterns are general and are applicable to drone-based operations.
 With the increasing relevance and accessibility of drone technology in conservation efforts, applying NERD in these contexts has the potential to enhance operational efficiency.
 
+# State of the Field
+
+&nbsp;
+
 # Formulation
 
 @Rojas2019 showed that the function $\sigma(x,y)$ to represent superficial bait density (kg/m$^2$) must comply with the following property:
