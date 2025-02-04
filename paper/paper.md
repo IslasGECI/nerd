@@ -68,16 +68,16 @@ With the increasing relevance and accessibility of drone technology in conservat
 
 # State of the Field
 
-NERD (Numerical Estimation of Rodenticide Density) represents a significant advancement over traditional methods by providing a highly precise, real-time solution for calculating bait density.
-Currently, the field of aerial rodenticide dispersal for invasive species eradication relies heavily on Geographic Information Systems (GIS) to generate ground-level bait dispersion maps.
-Traditional Geographic Information Systems (GIS) tools are often used to generate bait density maps based on in situ measurements.
-While GIS-based approaches have been widely used, they are time-consuming, making them less efficient for real-time decision-making during eradication campaigns.
-However, these approaches are time-intensive and require extensive field data, limiting their applicability for real-time decision-making.
-
-NERD automates the generation of bait density maps, allowing for immediate identification of bait gaps and adjustments during aerial operations.
-This innovation not only reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
-This innovative approach eliminates the need for exhaustive field measurements and enables immediate identification of bait gaps, making it particularly for large-scale eradication efforts.
+NERD (Numerical Estimation of Rodenticide Density) represents a significant advancement over traditional methods.
+Geographic Information Systems (GIS) is an inefficient method to generate bait dispersion maps for aerial rodenticide dispersal for invasive species eradication.
+GIS tools requires in situ measurements to generate bait density maps.
+GIS-based approaches are time-consuming, making them less efficient for real-time decision-making during eradication campaigns.
 In contrast with NERD, GIS requires extensive manual input and post-processing.
+
+NERD reduces the time and labor required compared with GIS-based approach.
+NERD automates the generation of bait density maps, allowing for immediate identification of bait gaps and adjustments during aerial operations.
+This innovative approach eliminates the need for exhaustive field measurements and enables immediate identification of bait gaps, making it particularly for large-scale eradication efforts.
+The automatic generation of bait density maps reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
 Currently, NERD is the only software solution specifically designed for real-time bait density estimation in rodent eradication campaigns.
 
 Several software tools and methodologies are currently available to estimate bait distribution for rodent eradication campaigns.
