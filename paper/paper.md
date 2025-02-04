@@ -79,16 +79,16 @@ GIS-based approaches are time-consuming, making them less efficient for real-tim
 Geographic Information Systems (GIS) is an inefficient method to generate bait dispersion maps for aerial rodenticide dispersal for invasive species eradication.
 NERD reduces the time and labor required compared with GIS-based approach.
 
+Some probabilistic models have been proposed to simulate bait distribution, but they often fail to provide the precision and speed required during aerial campaigns.
+Unlike these alternatives, NERD offers a streamlined, real-time solution by leveraging a probability density function calibrated through controlled experiments.
+NERD offers an efficient and accurate tool for both planning and executing large-scale eradication efforts.
+Despite these advantages, further advancements, such as incorporating environmental factors like wind, remain an area for future development.
+
 NERD represents a significant advancement over traditional methods.
 NERD automates the generation of bait density maps, allowing for immediate identification of bait gaps and adjustments during aerial operations.
 This innovative approach eliminates the need for exhaustive field measurements and enables immediate identification of bait gaps, making it particularly for large-scale eradication efforts.
 The automatic generation of bait density maps reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
 Currently, NERD is the only software solution specifically designed for real-time bait density estimation in rodent eradication campaigns.
-
-Some probabilistic models have been proposed to simulate bait distribution, but they often fail to provide the precision and speed required during aerial campaigns.
-Unlike these alternatives, NERD offers a streamlined, real-time solution by leveraging a probability density function calibrated through controlled experiments.
-NERD offers an efficient and accurate tool for both planning and executing large-scale eradication efforts.
-Despite these advantages, further advancements, such as incorporating environmental factors like wind, remain an area for future development.
 
 # Formulation
 
