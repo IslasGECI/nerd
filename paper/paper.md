@@ -70,7 +70,7 @@ With the increasing relevance and accessibility of drone technology in conservat
 
 Several software tools and methodologies are currently available to estimate bait distribution for rodent eradication campaigns.
 Currently, the field of aerial rodenticide dispersal for invasive species eradication relies heavily on Geographic Information Systems (GIS) to generate ground-level bait dispersion maps.
-Traditional Geographic Information Systems (GIS) tools are often used to generate bait density maps based on in situ measurements.
+Traditional Geographic Information Systems (GIS) tools, such as [Open Flightline Mini](https://github.com/zero-invasive-predators/open-flightline-mini-public), are often used to generate bait density maps based on in situ measurements.
 However, these approaches are time-intensive and require extensive field data, limiting their applicability for real-time decision-making.
 
 GIS requires extensive manual input and post-processing.
