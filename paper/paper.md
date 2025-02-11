@@ -58,7 +58,8 @@ However, creating bait density maps is traditionally slow and impractical in the
 Moreover, taking in situ measurements to evaluate aerial rodenticide broadcasts can be challenging due to field conditions, topography, and labor required.
 
 We developed NERD (Numerical Estimation of Rodenticide Dispersal) to address these challenges.
-NERD generates bait density maps automatically, allowing for the instant identification of bait gaps with fewer in situ measurements and facilitating the evaluation of aerial rodenticide dispersal campaigns.
+NERD generates bait density maps automatically with fewer in situ measurements and facilitating the evaluation of aerial rodenticide dispersal campaigns.
+The bait density maps allow for the identification of bait gaps and enable adjustments during aerial operations.
 NERD requires prior calibration experiments to determine the mass flow of rodenticide through the bait bucket.
 At its core, NERD is a probability density function that describes bait density on the ground as a function of the bucket aperture diameter and drone or helicopter speed.
 
@@ -75,9 +76,8 @@ However, these approaches are time-intensive and require extensive field data, l
 The automatic generation of bait density maps reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
 
 NERD reduces the time and labor required compared with GIS-based approach.
-NERD offers a streamlined, real-time solution by leveraging a probability density function calibrated through controlled experiments.
+This package offers a streamlined, real-time solution by leveraging a probability density function calibrated through controlled experiments.
 Some probabilistic models have been proposed to simulate bait distribution, but they often fail to provide the precision and speed required during aerial campaigns.
-NERD automates the generation of bait density maps, allowing for immediate identification of bait gaps and adjustments during aerial operations.
 The automatic generation of bait density maps reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
 
 NERD represents a significant advancement over traditional methods.
