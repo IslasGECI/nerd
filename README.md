@@ -62,7 +62,7 @@ Lastly, explore the Jupyter notebooks at http://localhost:8080/
 
 ## References ✏️
 
-- Rojas-Mayoral, E. (2019) «Improving the efficiency of aerial rodent eradications by means of the numerical estimation of rodenticide density». Island invasives: scaling up to meet the challenge, IUCN. [doi: 10.5281/zenodo.10214344.](https://doi.org/10.5281/zenodo.10214344)
+- Rojas-Mayoral, E. (2019) «Improving the efficiency of aerial rodent eradications by means of the numerical estimation of rodenticide density». Island invasives: scaling up to meet the challenge, IUCN. [DOI: 10.5281/zenodo.10214343](https://doi.org/10.5281/zenodo.10214343).
 
 ---
 ## Author
