@@ -42,7 +42,7 @@ You can explore the functionality of NERD through interactive Jupyter notebooks.
 These are the options to access the demonstration notebooks:
 
 - View a static version on GitHub.
-  Simply navigate to the [calibration-demo](https://github.com/IslasGECI/nerd/blob/develop/examples/calibration-demo.ipynb) and [tiling_demo](https://github.com/IslasGECI/nerd/blob/develop/examples/tiling_demo.ipynb) notebooks.
+  Simply navigate to the [calibration-demo](https://github.com/IslasGECI/nerd/blob/develop/example_notebooks/calibration-demo.ipynb) and [tiling_demo](https://github.com/IslasGECI/nerd/blob/develop/example_notebooks/tiling_demo.ipynb) notebooks.
 - Alternatively, you can run the Jupyter notebooks locally using Docker.
   Follow the instructions below:
 
