@@ -26,41 +26,41 @@ bibliography: references.bib
 
 # Summary
 
-Invasive rodents are present on approximately 90% of islands worldwide, seriously threatening endemic and native island species and making rodent eradication central to island conservation.
-Aerial broadcast is the preferred dispersal method of rodenticide bait.
+Invasive rodents are present on approximately 90% of islands worldwide, posing a serious threat to endemic and native island species and making rodent eradication central to island conservation.
+Aerial broadcast is the preferred method for dispersing rodenticide bait.
 Therefore, accurate bait density maps must be generated in real-time to maximize the efficiency of rodent eradication campaigns utilizing aerial dispersal methods.
-Traditionally, conservationists rely on ground-level bait dispersion maps generated using Geographic Information Systems (GIS).
+Traditionally, conservationists have relied on ground-level bait dispersion maps generated with Geographic Information Systems (GIS).
 However, this approach is time-consuming and based on untested assumptions.
 To improve the accuracy and efficiency of aerial operations, we developed NERD (Numerical Estimation of Rodenticide Density), an algorithm that performs highly precise calculations and provides immediate results.
-At its core, NERD  is a probability density function describing bait density on the ground as a function of the aperture diameter of the rodenticide bucket and helicopter speed.
+At its core, NERD  is a probability density function that describes bait density on the ground as a function of the aperture diameter of the rodenticide bucket and helicopter speed.
 We have confirmed the effectiveness of the model by successfully utilizing it in two island rodent eradication campaigns: mice eradication on San Benito Oeste (400 ha) in the Mexican Pacific and ship rat eradication on Cayo Centro (539 ha) of Banco Chinchorro in the Mexican Caribbean.
 Notably, the Cayo Centro campaign is the largest rodent eradication ever conducted on a wet tropical island to date.
-We have proved the efficiency of NERD and its potential to reduce the overall cost of large-scale rodent eradication campaigns significantly.
+We have proved the efficiency of NERD and its potential to notably reduce the overall cost of large-scale rodent eradication campaigns.
 
 # Introduction
 
-Invasive rodent species are incredibly deleterious to island ecosystems, especially those with levels of endemism or those without higher-order predators or predators occupying similar niches to the invasive rodents [@Meyers2000].
+Invasive rodent species are highly detrimental to island ecosystems, especially those with high levels of endemism or those lacking either higher-order predators or competitors occupying similar niches [@Meyers2000].
 Invasive rodent population dynamics are poorly understood on islands [@Harper2015].
-However, rodents on islands can cause native plant and animal species to decline rapidly and severely, even to extinction [@Medina2011; @Towns2006].
-The resultant losses are reflected in reduced biodiversity and, in many cases, invasive rodents becoming the dominant species.
+However, rodents can cause insular populations of native plant and animal species to decline rapidly and severely, even to extinction [@Medina2011; @Towns2006].
+The resultant losses are reflected in reduced biodiversity and, in many cases, invasive rodents becoming the dominant species on an island.
 In cases of severe rodent invasion, critical island ecosystem services are lost [@Towns2006].
-The first step to restoring islands and recovering biodiversity is eradicating invasive rodents.
-Effective strategies to combat the detrimental effects of invasive rodent species on island ecosystems aim to minimize or eradicate rodent populations, facilitating the restoration of native species and crucial ecosystem processes.
-The aerial broadcast of rodenticide is widely utilized and involves dispersing rodenticide bait pellets from helicopters over target areas.
+The first step in restoring islands and recovering biodiversity is the eradication of invasive rodents.
+Therefore, effective strategies to mitigate the detrimental effects of invasive rodent species in insular ecosystems and facilitate the restoration of native species and crucial ecosystem processes depende on successfully eradicating rodent populations.
+To this end, the aerial broadcast of rodenticide is a widely utilized strategy that involves dispersing rodenticide bait pellets from helicopters over target areas.
 Aerial broadcast effectively reduces rodent populations and has been successfully employed in numerous eradication campaigns [@Keitt2015].
 
 # Statement of need
 
 Aerial rodenticide broadcast is the preferred method to eradicate invasive island species because of its obvious advantages.
-Aerial broadcast can quickly cover large areas with bait, mitigating the challenges associated with navigating complex topography by land.
-Bait density maps that show the spatial variation in availability on the ground are necessary to assess the effectiveness of aerial operations.
+Notably, aerial broadcast can quickly cover large areas with bait, mitigating the challenges associated with navigating complex topography by land.
+Bait density maps that show the spatial variation in coverage on the ground are necessary to assess the effectiveness of aerial operations.
 However, creating bait density maps is traditionally slow and impractical in the field.
-Moreover, taking in situ measurements to evaluate aerial rodenticide broadcasts can be challenging due to field conditions, topography, and labor required.
+Moreover, taking in situ measurements to evaluate aerial rodenticide broadcasts is often challenging due to field conditions, topography, and the labor required.
 
 We developed NERD (Numerical Estimation of Rodenticide Dispersal) to address these challenges.
-NERD generates bait density maps automatically with fewer in situ measurements and facilitating the evaluation of aerial rodenticide dispersal campaigns.
-The bait density maps allow for the identification of bait gaps and enable adjustments during aerial operations.
 NERD requires prior calibration experiments to determine the mass flow of rodenticide through the bait bucket.
+Following calibration, NERD generates bait density maps automatically with fewer in situ measurements, allowing project managers to evaluate the efficacy of aerial rodenticide dispersal campaigns in real-time.
+Notably, the bait density maps can be used to identify gaps in bait coverage, enabling rapid adjustments during aerial operations.
 At its core, NERD is a probability density function that describes bait density on the ground as a function of the bucket aperture diameter and drone or helicopter speed.
 
 NERD was originally developed and validated for helicopter-based applications.
@@ -69,22 +69,20 @@ With the increasing relevance and accessibility of drone technology in conservat
 
 # State of the Field
 
-Several software tools and methodologies are currently available to estimate bait distribution for rodent eradication campaigns.
-Currently, the field of aerial rodenticide dispersal for invasive species eradication relies heavily on Geographic Information Systems (GIS) to generate ground-level bait dispersion maps.
+Several software tools and methodologies are available to estimate bait distribution for rodent eradication campaigns.
+At present, the field of aerial rodenticide dispersal for invasive species eradication relies heavily on Geographic Information Systems (GIS) to generate ground-level bait dispersion maps.
 GIS tools, such as [Open Flightline Mini](https://github.com/zero-invasive-predators/open-flightline-mini-public), are often used to generate bait density maps based on in situ measurements.
 However, these approaches are time-intensive and require extensive field data, limiting their applicability for real-time decision-making.
-The automatic generation of bait density maps reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
+The automatic generation of bait density maps reduces the time and labor required, thereby enhancing the overall effectiveness of eradication campaigns.
 
-NERD reduces the time and labor required compared with GIS-based approach.
-This package offers a streamlined, real-time solution by leveraging a probability density function calibrated through controlled experiments.
-Some probabilistic models have been proposed to simulate bait distribution, but they often fail to provide the precision and speed required during aerial campaigns.
-The automatic generation of bait density maps reduces the time and labor required but also enhances the overall effectiveness of eradication campaigns.
+Some probabilistic models have been proposed to simulate bait distributions, but these have not been able to provide the precision and speed required to make real-time decision during aerial campaigns in the field.
+The NERD package offers a streamlined, real-time solution by leveraging a probability density function calibrated through controlled experiments
 
-NERD represents a significant advancement over traditional methods.
-This innovative approach eliminates the need for exhaustive field measurements and enables immediate identification of bait gaps.
-NERD offers an efficient and accurate tool for both planning and executing large-scale eradication efforts.
-Currently, NERD is the only software solution specifically designed for real-time bait density estimation in rodent eradication campaigns.
-Despite these advantages, further advancements, such as incorporating environmental factors like wind, remain an area for future development.
+As such, NERD represents a significant advancement over traditional methods.
+This innovative approach eliminates the need for exhaustive field measurements and enables bait gaps to be immediately identified.
+Thus, NERD is an efficient and accurate tool that may be used to plan and execute large-scale eradication efforts.
+Currently, NERD is the only software solution specifically designed to estimate bait density in real-time during rodent eradication campaigns.
+Despite the advantages of NERD, further advancements can be made to the package, such as incorporating environmental factors (e.g., wind).
 
 # Formulation
 
@@ -95,13 +93,13 @@ Despite these advantages, further advancements, such as incorporating environmen
 \end{equation}
 where $\dot{m}$ is the bait flow (kg/s), $s$ is the speed of the helicopter (m/s), and $w$ is the swath width (m).
 
-This approach provides a practical and efficient method for estimating bait distribution.
+This approach provides a practical and efficient method for estimating bait distributions.
 However, it is important to note that the current model does not consider the effects of wind on bait dispersion.
-Future work could incorporate wind dynamics to improve the model's predictive capabilities under diverse environmental conditions.
+Future work could incorporate wind dynamics to improve the predictive capabilities of the model under diverse environmental conditions.
 
 # Calibration
 
-Assuming the density is independent of $x$ (i.e., $\sigma$ does not change along the swath width) and expressing the mass flow rate of the bait as a function of the aperture diameter, $\dot{m}(d)$, we obtain a two-parameter model:
+Assuming that density is independent of $x$ (i.e., $\sigma$ does not change along the swath width) and expressing the mass flow rate of the bait as a function of the aperture diameter, $\dot{m}(d)$, we obtain a two-parameter model:
 
 \begin{equation} \sigma(d,s)= \frac{\dot{m}(d)}{s\cdot w}. \end{equation}
 
@@ -143,21 +141,21 @@ There is another way to setup the model parameters using a json file.
 
 # Use cases
 
-Each island requires a specific bait density to eradicate invasive rodents successfully, which requires studying the ecosystem and biology of the target species.
+Each island requires a specific bait density to eradicate invasive rodents successfully, which must be determined following careful study of the ecosystem and biology of the target species.
 
 NERD is useful when planning an eradication campaign because it can ensure efficient bait coverage while maximizing resources, time, and labor requirements.
 For example, we can use NERD to determine the bait bucket diameter necessary to achieve the desired bait density on the ground.
 While planning helicopter flight paths, bait density is assumed to be constant within each swath but variable between swaths.
 
-NERD is also useful during an eradication campaign. Notably, conservationists can use NERD to generate bait density maps in nearly real-time.
-Furthermore, we can evaluate bait density on the ground, even when the helicopter flies at variable speeds.
-The NERD maps can identify bait gaps during eradication campaigns in the field, ensuring an efficient use of resources.
+Notably, conservationists can use NERD to generate bait density maps in nearly real-time.
+Furthermore, conservationists can evaluate bait density on the ground, even when the helicopter flies at variable speeds.
+The NERD maps can be used to identify bait gaps during eradication campaigns in the field, ensuring an efficient use of resources.
 
 
 # Conclusions
 
-NERD is an algorithm that describes bait density as a function of the aperture diameter and helicopter speed, based on past calibration experiments measuring rodenticide mass flow through a bait bucket.
-NERD can aid in planning aerial operations and during eradication campaigns by providing near real-time feedback and allowing for on-the-spot corrections.
-The final product of NERD is a bait density map generated in a matter of seconds, allowing for the instant identification of bait gaps and ensuring efficient resource use.
+NERD is an algorithm that describes bait density as a function of the aperture diameter and helicopter speed, based on past calibration experiments measuring the mass flow of rodenticide through a bait bucket.
+NERD can aid in planning aerial operations and during eradication campaigns by providing near real-time feedback, allowing for on-the-spot corrections.
+The final product of NERD is a bait density map generated in a matter of seconds, enabling the instant identification of bait gaps and ensuring efficient resource use.
 
 # References
