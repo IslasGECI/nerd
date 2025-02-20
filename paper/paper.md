@@ -45,7 +45,7 @@ However, rodents can cause insular populations of native plant and animal specie
 The resultant losses are reflected in reduced biodiversity and, in many cases, invasive rodents becoming the dominant species on an island.
 In cases of severe rodent invasion, critical island ecosystem services are lost [@Towns2006].
 The first step in restoring islands and recovering biodiversity is the eradication of invasive rodents.
-Therefore, effective strategies to mitigate the detrimental effects of invasive rodent species in insular ecosystems and facilitate the restoration of native species and crucial ecosystem processes depende on successfully eradicating rodent populations.
+Therefore, effective strategies to mitigate the detrimental effects of invasive rodent species in insular ecosystems and facilitate the restoration of native species and crucial ecosystem processes depend on successfully eradicating rodent populations.
 To this end, the aerial broadcast of rodenticide is a widely utilized strategy that involves dispersing rodenticide bait pellets from helicopters over target areas.
 Aerial broadcast effectively reduces rodent populations and has been successfully employed in numerous eradication campaigns [@Keitt2015].
 
