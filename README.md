@@ -66,7 +66,9 @@ Lastly, explore the Jupyter notebooks at http://localhost:8080/
 - Rojas-Mayoral, E., Méndez-Sánchez, F., Rojas-Mayoral, B., & Aguirre-Muñoz, A. (2019, May 17). «Improving the efficiency of aerial rodent eradications by means of the numerical estimation of rodenticide density». Island invasives: scaling up to meet the challenge, IUCN. Dundee, Scotland. [DOI: 10.5281/zenodo.10214343](https://doi.org/10.5281/zenodo.10214343)
 
 ---
-## Author
+
+## Authors' affiliation
+
 - [Grupo de Ecología y Conservación de Islas](https://www.islas.org.mx/)
 
 ## Contributors
