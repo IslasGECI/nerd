@@ -14,3 +14,8 @@ title: "NERD: Numerical Estimation of Rodenticide Density. Journal of Open Sourc
 version: 1.0.0
 date-released: 2025-02-28
 url: "https://github.com/IslasGECI/nerd"
+doi: 10.5281/zenodo.14947594
+license:
+- agpl-3.0-only
+repository-code: https://github.com/IslasGECI/nerd
+type: software
