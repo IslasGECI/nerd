@@ -10,7 +10,7 @@ authors:
   - family-names: Méndez-Sánchez
     given-names: Federico A.
     orcid: https://orcid.org/0000-0002-3467-0008
-title: "NERD: Numerical Estimation of Rodenticide Density. Journal of Open Source Software"
+title: "NERD: Numerical Estimation of Rodenticide Density"
 version: 1.0.0
 date-released: 2025-02-28
 url: "https://github.com/IslasGECI/nerd"
@@ -19,3 +19,15 @@ license:
 - agpl-3.0-only
 repository-code: https://github.com/IslasGECI/nerd
 type: software
+abstract: '
+  Invasive rodents are present on approximately 90% of islands worldwide, posing a serious threat to endemic and native island species and making rodent eradication central to island conservation.
+  Aerial broadcast is the preferred method for dispersing rodenticide bait.
+  Therefore, accurate bait density maps must be generated in real-time to maximize the efficiency of rodent eradication campaigns utilizing aerial dispersal methods.
+  Traditionally, conservationists have relied on ground-level bait dispersion maps generated with Geographic Information Systems (GIS).
+  However, this approach is time-consuming and based on untested assumptions.
+  To improve the accuracy and efficiency of aerial operations, we developed NERD (Numerical Estimation of Rodenticide Density), an algorithm that performs highly precise calculations and provides immediate results.
+  At its core, NERD  is a probability density function that describes bait density on the ground as a function of the aperture diameter of the rodenticide bucket and helicopter speed.
+  We have confirmed the effectiveness of the model by successfully utilizing it in two island rodent eradication campaigns: mice eradication on San Benito Oeste (400 ha) in the Mexican Pacific and ship rat eradication on Cayo Centro (539 ha) of Banco Chinchorro in the Mexican Caribbean.
+  Notably, the Cayo Centro campaign is the largest rodent eradication ever conducted on a wet tropical island to date.
+  We have proved the efficiency of NERD and its potential to notably reduce the overall cost of large-scale rodent eradication campaigns.
+  '
