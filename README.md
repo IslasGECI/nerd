@@ -1,5 +1,6 @@
 <a href="https://www.islas.org.mx/"><img src="https://www.islas.org.mx/img/logo.svg" align="right" width="256" /></a>
 [![status](https://joss.theoj.org/papers/f68799e8216e0ed1c1d06feb095e6994/status.svg)](https://joss.theoj.org/papers/f68799e8216e0ed1c1d06feb095e6994)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14947594.svg)](https://doi.org/10.5281/zenodo.14947594)
 # NERD: Numerical Estimation of Rodenticide Density
 
 The eradication of rodents is central to island restoration efforts and the aerial broadcast of
