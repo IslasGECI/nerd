@@ -1,15 +1,20 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+cff-version: "1.2.0"
+message: If you use this software, please cite our article in the
+  Journal of Open Source Software.
 authors:
-  - family-names: Rojas-Mayoral
-    given-names: Evaristo
-    orcid: https://orcid.org/0000-0001-6812-9562
-  - family-names: Rojas-Mayoral
-    given-names: Braulio
-    orcid: https://orcid.org/0000-0003-2358-2843
-  - family-names: Méndez-Sánchez
-    given-names: Federico A.
-    orcid: https://orcid.org/0000-0002-3467-0008
+- family-names: Rojas-Mayoral
+  given-names: Evaristo
+  orcid: "https://orcid.org/0000-0001-6812-9562"
+- family-names: Rojas-Mayoral
+  given-names: Braulio
+  orcid: "https://orcid.org/0000-0003-2358-2843"
+- family-names: Méndez-Sánchez
+  given-names: Federico A.
+  orcid: "https://orcid.org/0000-0002-3467-0008"
+contact:
+- family-names: Rojas-Mayoral
+  given-names: Evaristo
+  orcid: "https://orcid.org/0000-0001-6812-9562"
 title: "NERD: Numerical Estimation of Rodenticide Density"
 version: 1.0.0
 date-released: 2025-02-28
@@ -19,6 +24,29 @@ license:
 - agpl-3.0-only
 repository-code: https://github.com/IslasGECI/nerd
 type: software
+preferred-citation:
+  authors:
+  - family-names: Rojas-Mayoral
+    given-names: Evaristo
+    orcid: "https://orcid.org/0000-0001-6812-9562"
+  - family-names: Rojas-Mayoral
+    given-names: Braulio
+    orcid: "https://orcid.org/0000-0003-2358-2843"
+  - family-names: Méndez-Sánchez
+    given-names: Federico A.
+    orcid: "https://orcid.org/0000-0002-3467-0008"
+  date-published: 2025-03-03
+  doi: 10.21105/joss.06736
+  issn: 2475-9066
+  issue: 107
+  journal: Journal of Open Source Software
+  publisher:
+    name: Open Journals
+  start: 6736
+  title: "NERD: Numerical Estimation of Rodenticide Density"
+  type: article
+  url: "https://joss.theoj.org/papers/10.21105/joss.06736"
+  volume: 10
 abstract: '
   Invasive rodents are present on approximately 90% of islands worldwide, posing a serious threat to endemic and native island species and making rodent eradication central to island conservation.
   Aerial broadcast is the preferred method for dispersing rodenticide bait.
