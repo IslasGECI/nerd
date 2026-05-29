@@ -29,7 +29,7 @@ def solver(
 
     def mass_conservation(parametro_libre):
         def sigma(distance):
-            return density_function(distance, swath_width, parametro_libre)[0]
+            return density_function(distance, swath_width, parametro_libre).item()
 
         integrations_limits = swath_width / 2
         integral = quad(sigma, -integrations_limits, integrations_limits)[0]
