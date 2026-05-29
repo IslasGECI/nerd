@@ -16,7 +16,7 @@ contact:
   given-names: Evaristo
   orcid: "https://orcid.org/0000-0001-6812-9562"
 title: "NERD: Numerical Estimation of Rodenticide Density"
-version: 1.0.0
+version: 1.0.1
 date-released: 2025-02-28
 url: "https://github.com/IslasGECI/nerd"
 doi: 10.5281/zenodo.14947594
